@@ -1,10 +1,8 @@
-import Header from "@/src/components/Header";
 import Link from "next/link";
 import {
   AiFillLinkedin,
   AiFillGithub,
   AiOutlineWhatsApp,
-  AiFillCodepenSquare,
 } from "react-icons/ai";
 
 import { MdEmail } from "react-icons/md";
