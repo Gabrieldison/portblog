@@ -14,7 +14,7 @@ const Post = () => {
 
         const postUID = query?.uid as string;
 
-        const fetchedPost = await client.getByUID("post1", postUID);
+        const fetchedPost = await client.getByUID("posts", postUID);
 
         console.log(fetchedPost, "EU SOU O CONSOLE LOG DE DENTRO");
 
@@ -35,12 +35,12 @@ const Post = () => {
 
   return (
     <div>
-      <h1>{post.titulo[0].text}</h1>
+      <h1>{post.title[0].text}</h1>
       <p>{post.content[0].text}</p>
 
       <Image
-        src={post.image.url}
-        alt={post.image.alt}
+        src={post.images.url}
+        alt={post.images.alt}
         width={100}
         height={100}
       />

@@ -10,7 +10,7 @@ const Blog = () => {
     const fetchData = async () => {
       try {
         const client = createClient();
-        const fetchedPost = await client.getAllByType("post1");
+        const fetchedPost = await client.getAllByType("posts");
 
         setPostList(fetchedPost);
       } catch (error) {
@@ -22,7 +22,7 @@ const Blog = () => {
   }, []);
 
   console.log(
-    postList.map((post) => console.log(post)),
+    postList.map((post) => console.log(post.data)),
     "EU SOU O BIG GUY DA PARADA"
   );
 
@@ -36,15 +36,16 @@ const Blog = () => {
         <Link href={`/blog/[uid]`} as={`/blog/${posts.uid}`} key={posts.uid}>
           <div className="flex bg-gray-900 mb-8 rounded-xl">
             <Image
-              src={posts.data.image.url}
-              alt={posts.data.image.alt}
-              width={320}
-              height={180}
+              src={posts.data.images.url}
+              alt={posts.data.images.alt}
+              width={160}
+              height={80}
+              className="mr-4 rounded-s-xl"
             />
 
             <section>
-              <h1>{posts.data.titulo[0].text}</h1>
-              <span>{posts.data.content[0].text}</span>
+              <h1 className="text-2xl mb-8">{posts.data.title[0].text}</h1>
+              <span>{posts.data.description[0].text}</span>
             </section>
           </div>
         </Link>

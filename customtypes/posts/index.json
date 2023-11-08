@@ -1,6 +1,6 @@
 {
-  "id": "post1",
-  "label": "post1",
+  "id": "posts",
+  "label": "posts",
   "format": "custom",
   "repeatable": true,
   "status": true,
@@ -13,6 +13,31 @@
         },
         "type": "UID"
       },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "date": {
+        "type": "Date",
+        "config": {
+          "label": "date",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "content": {
         "type": "StructuredText",
         "config": {
@@ -22,21 +47,12 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "image": {
+      "images": {
         "type": "Image",
         "config": {
-          "label": "image",
+          "label": "images",
           "constraint": {},
           "thumbnails": []
-        }
-      },
-      "titulo": {
-        "type": "StructuredText",
-        "config": {
-          "label": "titulo",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       }
     }

@@ -5,66 +5,88 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Content for post1 documents
+ * Content for posts documents
  */
-interface Post1DocumentData {
+interface PostsDocumentData {
   /**
-   * content field in *post1*
+   * title field in *posts*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: post1.content
+   * - **API ID Path**: posts.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * date field in *posts*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * description field in *posts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * content field in *posts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.content
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   content: prismic.RichTextField;
 
   /**
-   * image field in *post1*
+   * images field in *posts*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: post1.image
+   * - **API ID Path**: posts.images
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
-
-  /**
-   * titulo field in *post1*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: post1.titulo
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  titulo: prismic.RichTextField;
+  images: prismic.ImageField<never>;
 }
 
 /**
- * post1 document from Prismic
+ * posts document from Prismic
  *
- * - **API ID**: `post1`
+ * - **API ID**: `posts`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type Post1Document<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<Post1DocumentData>, "post1", Lang>;
+export type PostsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 
-export type AllDocumentTypes = Post1Document;
+export type AllDocumentTypes = PostsDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
   namespace Content {
-    export type { Post1Document, Post1DocumentData, AllDocumentTypes };
+    export type { PostsDocument, PostsDocumentData, AllDocumentTypes };
   }
 }
