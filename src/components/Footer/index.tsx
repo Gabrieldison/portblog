@@ -1,56 +1,50 @@
 import Link from "next/link";
 import {
-  AiFillCodepenSquare,
   AiFillGithub,
   AiFillLinkedin,
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 
-export default function Header() {
+export default function Footer() {
   return (
-    <header className="flex justify-between items-center mb-16">
-      <Link href="/">
-        <AiFillCodepenSquare size={30} />
-      </Link>
+    <footer>
+      <p>Você pode entrar em contato com Gabriel nos seguintes canais: </p>
 
-      <nav className="text-gray-300 flex gap-5 items-center">
+      <nav className="flex items-center mt-4">
         <Link
           href="https://www.linkedin.com/in/gabriel-dison/"
           target="_blank"
-          className=" hover:text-white"
+          className="px-2 flex items-center gap-2 underline"
         >
+          LinkedIn
           <AiFillLinkedin />
         </Link>
         <Link
           href="https://github.com/Gabrieldison"
           target="_blank"
-          className="hover:text-white"
+          className="px-2 flex items-center gap-2 underline"
         >
+          Github
           <AiFillGithub />
         </Link>
         <Link
           href="mailto:gabriel.disonreis@gmail.com"
           target="_blank"
-          className="hover:text-white"
+          className="px-2 flex items-center gap-2 underline"
         >
+          Email
           <MdEmail />
         </Link>
         <Link
           href="https://wa.me/5584981549159"
           target="_blank"
-          className="hover:text-white"
+          className="px-2 flex items-center gap-2 underline"
         >
+          WhatsApp
           <AiOutlineWhatsApp />
         </Link>
-
-        <Link href="/blog" className=" hover:text-white text-lg">
-          Blog
-        </Link>
-        <Link href="/projects" className=" hover:text-white text-lg">
-          Projetos
-        </Link>
       </nav>
-    </header>
+    </footer>
   );
 }
