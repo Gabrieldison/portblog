@@ -2,6 +2,7 @@ import { createClient } from "@/src/prismicio";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Subtitle from "@/src/slices/Subtitle";
 
 const Post = () => {
   const [post, setPost] = useState<any>(null);
@@ -36,13 +37,14 @@ const Post = () => {
   return (
     <div>
       <h1>{post.title[0].text}</h1>
-      <p>{post.content[0].text}</p>
+      <h3>{post.slices[0].primary.subtitle[0].text}</h3>
+      <p>{post.slices[1].primary.content[0].text}</p>
 
       <Image
-        src={post.images.url}
-        alt={post.images.alt}
-        width={100}
-        height={100}
+        src={post.slices[2].primary.image.url}
+        alt={post.slices[2].primary.image.alt}
+        width={320}
+        height={320}
       />
     </div>
   );

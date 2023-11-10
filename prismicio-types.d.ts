@@ -4,6 +4,8 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type PostsDocumentDataSlicesSlice = SectionSlice | SubtitleSlice | ImageSlice;
+
 /**
  * Content for posts documents
  */
@@ -42,26 +44,26 @@ interface PostsDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * content field in *posts*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.content
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  content: prismic.RichTextField;
-
-  /**
-   * images field in *posts*
+   * thumbnail field in *posts*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: posts.images
+   * - **API ID Path**: posts.thumbnail
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  images: prismic.ImageField<never>;
+  thumbnail: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *posts*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PostsDocumentDataSlicesSlice>;
 }
 
 /**
@@ -78,6 +80,138 @@ export type PostsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = PostsDocument;
 
+/**
+ * Primary content in *Image → Primary*
+ */
+export interface ImageSliceDefaultPrimary {
+  /**
+   * image field in *Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Image Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Image*
+ */
+type ImageSliceVariation = ImageSliceDefault;
+
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
+ * Primary content in *Content → Primary*
+ */
+export interface SectionSliceDefaultPrimary {
+  /**
+   * content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: section.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Content*
+ */
+type SectionSliceVariation = SectionSliceDefault;
+
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `section`
+ * - **Description**: Section
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionSlice = prismic.SharedSlice<
+  "section",
+  SectionSliceVariation
+>;
+
+/**
+ * Primary content in *Subtitle → Primary*
+ */
+export interface SubtitleSliceDefaultPrimary {
+  /**
+   * subtitle field in *Subtitle → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subtitle.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Subtitle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubtitleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SubtitleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Subtitle*
+ */
+type SubtitleSliceVariation = SubtitleSliceDefault;
+
+/**
+ * Subtitle Shared Slice
+ *
+ * - **API ID**: `subtitle`
+ * - **Description**: Subtitle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubtitleSlice = prismic.SharedSlice<
+  "subtitle",
+  SubtitleSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -87,6 +221,23 @@ declare module "@prismicio/client" {
   }
 
   namespace Content {
-    export type { PostsDocument, PostsDocumentData, AllDocumentTypes };
+    export type {
+      PostsDocument,
+      PostsDocumentData,
+      PostsDocumentDataSlicesSlice,
+      AllDocumentTypes,
+      ImageSlice,
+      ImageSliceDefaultPrimary,
+      ImageSliceVariation,
+      ImageSliceDefault,
+      SectionSlice,
+      SectionSliceDefaultPrimary,
+      SectionSliceVariation,
+      SectionSliceDefault,
+      SubtitleSlice,
+      SubtitleSliceDefaultPrimary,
+      SubtitleSliceVariation,
+      SubtitleSliceDefault,
+    };
   }
 }

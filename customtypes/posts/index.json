@@ -38,21 +38,29 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "content": {
-        "type": "StructuredText",
-        "config": {
-          "label": "content",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "images": {
+      "thumbnail": {
         "type": "Image",
         "config": {
-          "label": "images",
+          "label": "thumbnail",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "section": {
+              "type": "SharedSlice"
+            },
+            "subtitle": {
+              "type": "SharedSlice"
+            },
+            "image": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     }

@@ -36,8 +36,8 @@ const Blog = () => {
         <Link href={`/blog/[uid]`} as={`/blog/${posts.uid}`} key={posts.uid}>
           <div className="flex bg-gray-900 mb-8 rounded-xl">
             <Image
-              src={posts.data.images.url}
-              alt={posts.data.images.alt}
+              src={posts.data.thumbnail.url}
+              alt={posts.data.thumbnail.alt}
               width={160}
               height={80}
               className="mr-4 rounded-s-xl"
