@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import "../styles/globals.css";
-import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
