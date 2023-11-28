@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `Section`.
@@ -15,7 +15,7 @@ const Section = ({ slice }: SectionProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for section (variation: {slice.variation}) Slices
+      <PrismicRichText field={slice.primary.content} />
     </section>
   );
 };

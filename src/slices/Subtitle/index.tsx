@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `Subtitle`.
@@ -15,7 +15,12 @@ const Subtitle = ({ slice }: SubtitleProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for subtitle (variation: {slice.variation}) Slices
+      <PrismicRichText
+        field={slice.primary.subtitle}
+        components={{
+          heading3: ({ children }) => <h3 className="text-3xl">{children}</h3>,
+        }}
+      />
     </section>
   );
 };
