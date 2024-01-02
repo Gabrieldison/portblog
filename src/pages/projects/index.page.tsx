@@ -1,53 +1,42 @@
-import { createClient } from "@/src/prismicio";
-import Image from "next/image";
+import {
+  StackIcons,
+  StackLabels,
+  useGitHubAutomatedRepos,
+} from "github-automated-repos";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { AiFillApi } from "react-icons/ai";
 
-export default function Projects() {
-  const [projectsList, setProjectsList] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const client = createClient();
-        const fetchedProjects = await client.getAllByType("projects");
-
-        setProjectsList(fetchedProjects);
-      } catch (error) {
-        console.error("Erro ao buscar dados do Prismic:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(
-    projectsList.map((post) => console.log(post.data)),
-    "EU SOU O BIG GUY DA PARADA"
-  );
-
-  if (!projectsList) {
-    return <div>Loading...</div>;
-  }
+const Projects = () => {
+  const data = useGitHubAutomatedRepos("Gabrieldison", "projects");
 
   return (
-    <>
-      <main>
-        {projectsList.map((projects) => (
-          <Link
-            href={`/projects/[uid]`}
-            as={`/projects/${projects.uid}`}
-            key={projects.uid}
-          >
-            <div className="flex bg-gray-900 mb-8 rounded-xl">
-              <section>
-                <h1 className="text-2xl mb-8">{projects.data.title[0].text}</h1>
-                <span>{projects.data.description[0].text}</span>
-              </section>
+    <main>
+      {data.map((project) => (
+        <Link
+          href={project.html_url}
+          target="_blank"
+          key={project.id}
+          className="flex gap-10 bg-zinc-900 rounded items-center pb-2"
+        >
+          <AiFillApi size={55} />
+
+          <div>
+            <h2 className="text-3xl mb-2">{project.name}</h2>
+            <p className="mb-2">{project.description}</p>
+            <div className="flex gap-2">
+              {project.topics.map((icon) => (
+                <StackLabels
+                  key={icon}
+                  itemTopics={icon}
+                  className="bg-gray-700 rounded px-2"
+                />
+              ))}
             </div>
-          </Link>
-        ))}
-      </main>
-    </>
+          </div>
+        </Link>
+      ))}
+    </main>
   );
-}
+};
+
+export default Projects;

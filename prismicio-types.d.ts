@@ -78,78 +78,7 @@ interface PostsDocumentData {
 export type PostsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 
-type ProjectsDocumentDataSlicesSlice =
-  | StacksSlice
-  | LinkSlice
-  | SaleProjectSlice
-  | DemoSlice;
-
-/**
- * Content for projects documents
- */
-interface ProjectsDocumentData {
-  /**
-   * title field in *projects*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *projects*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * banner field in *projects*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.banner
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  banner: prismic.ImageField<never>;
-
-  /**
-   * Slice Zone field in *projects*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ProjectsDocumentDataSlicesSlice>;
-}
-
-/**
- * projects document from Prismic
- *
- * - **API ID**: `projects`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ProjectsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ProjectsDocumentData>,
-    "projects",
-    Lang
-  >;
-
-export type AllDocumentTypes = PostsDocument | ProjectsDocument;
+export type AllDocumentTypes = PostsDocument;
 
 /**
  * Primary content in *Demo → Primary*
@@ -276,36 +205,6 @@ type LinkSliceVariation = LinkSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type LinkSlice = prismic.SharedSlice<"link", LinkSliceVariation>;
-
-/**
- * Default variation for Projects Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ProjectsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *Projects*
- */
-type ProjectsSliceVariation = ProjectsSliceDefault;
-
-/**
- * Projects Shared Slice
- *
- * - **API ID**: `projects`
- * - **Description**: Projects
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ProjectsSlice = prismic.SharedSlice<
-  "projects",
-  ProjectsSliceVariation
->;
 
 /**
  * Primary content in *SaleProject → Primary*
@@ -497,9 +396,6 @@ declare module "@prismicio/client" {
       PostsDocument,
       PostsDocumentData,
       PostsDocumentDataSlicesSlice,
-      ProjectsDocument,
-      ProjectsDocumentData,
-      ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
       DemoSlice,
       DemoSliceDefaultPrimary,
@@ -513,9 +409,6 @@ declare module "@prismicio/client" {
       LinkSliceDefaultPrimary,
       LinkSliceVariation,
       LinkSliceDefault,
-      ProjectsSlice,
-      ProjectsSliceVariation,
-      ProjectsSliceDefault,
       SaleProjectSlice,
       SaleProjectSliceDefaultPrimary,
       SaleProjectSliceVariation,
