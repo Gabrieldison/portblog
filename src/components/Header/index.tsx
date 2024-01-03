@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   AiFillCodepenSquare,
   AiFillGithub,
@@ -6,13 +7,25 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Header() {
+  const router = useRouter();
+
+  // Verificar se não está na página inicial
+  const notAtHome = router.pathname !== "/";
+
   return (
     <header className="flex justify-between items-center mb-16">
-      <Link href="/">
-        <AiFillCodepenSquare size={30} />
-      </Link>
+      {notAtHome ? (
+        <Link href="/">
+          <FaArrowLeft size={20} />
+        </Link>
+      ) : (
+        <Link href="/">
+          <AiFillCodepenSquare size={30} />
+        </Link>
+      )}
 
       <nav className="text-gray-300 flex gap-5 items-center">
         <Link

@@ -7,10 +7,59 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 export default function Home() {
+  const [isScrolledToBottom, setScrolledToBottom] = useState(false);
+  const [isExpanded, setExpanded] = useState(false);
+
+  const expandProps = useSpring({
+    height: isExpanded ? 50 : 0, // Ajuste a altura conforme necessário
+  });
+
+  const fadeInButtonProps = useSpring({
+    opacity: isScrolledToBottom ? 1 : 0,
+    from: { opacity: 0 },
+  });
+
+  const jumpProps = useSpring({
+    y: isScrolledToBottom ? -10 : 5,
+  });
+
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop;
+
+      // Ajuste o valor abaixo conforme necessário para determinar quando o usuário atinge o final da página
+      const bottomThreshold =
+        document.body.offsetHeight - window.innerHeight - 200;
+
+      setScrolledToBottom(scrollPosition > bottomThreshold);
+    };
+    const handleClickOutside = (event: any) => {
+      if (
+        buttonRef.current &&
+        "contains" in buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        // Clique fora do botão, fecha o conteúdo expandido
+        setExpanded(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="relative">
       <main className="justify-center items-center">
@@ -111,9 +160,57 @@ export default function Home() {
         </nav>
       </footer>
 
-      <button className="bg-zinc-900 p-4 rounded cursor-pointer">
-        <FaLongArrowAltDown className="text-white" />
-      </button>
+      {isScrolledToBottom && (
+        <animated.button
+          className="bg-zinc-900 p-2 rounded cursor-pointer absolute bottom-0 left-1/2 opacity-75"
+          onClick={() => setExpanded(!isExpanded)}
+          style={{ ...fadeInButtonProps, ...jumpProps }}
+          ref={buttonRef}
+        >
+          <div
+            onClick={(e) => {
+              // Evita que o clique dentro da div propague para o botão
+              e.stopPropagation();
+            }}
+            className="flex items-center justify-center"
+          >
+            <animated.div
+              style={expandProps}
+              onClick={(e) => {
+                // Se a div estiver expandida, impede que o clique propague para o botão
+                if (isExpanded) {
+                  setExpanded(true); // Mantém o estado atual
+                  e.stopPropagation();
+                }
+              }}
+            >
+              {isExpanded && (
+                <p className="text-gray-300">
+                  Chamei sua atenção? - Descubra mais sobre minha jornada
+                  clicando{" "}
+                  <Link
+                    href="/about"
+                    className="underline text-white hover:text-gray-500"
+                  >
+                    aqui
+                  </Link>
+                  , nobre visitante!
+                </p>
+              )}
+            </animated.div>
+
+            {!isExpanded && (
+              <FaLongArrowAltDown
+                className="text-white"
+                onMouseDown={(e) => {
+                  e.preventDefault(); // Evita que o evento de clique seja propagado para o botão
+                  setExpanded(true);
+                }}
+              />
+            )}
+          </div>
+        </animated.button>
+      )}
     </div>
   );
 }
