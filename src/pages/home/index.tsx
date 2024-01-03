@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 import {
   AiFillGithub,
@@ -6,10 +7,12 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <main className="justify-center items-center">
         <h1 className="text-4xl mb-4 font-bold">Gabriel dison</h1>
 
@@ -69,7 +72,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer>
+      <footer className="mb-4">
         <p>Você pode entrar em contato com Gabriel nos seguintes canais: </p>
 
         <nav className="flex items-center mt-4">
@@ -107,6 +110,10 @@ export default function Home() {
           </Link>
         </nav>
       </footer>
+
+      <button className="bg-zinc-900 p-4 rounded cursor-pointer">
+        <FaLongArrowAltDown className="text-white" />
+      </button>
     </div>
   );
 }
