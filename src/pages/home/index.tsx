@@ -12,11 +12,6 @@ import { useSpring, animated } from "react-spring";
 
 export default function Home() {
   const [isScrolledToBottom, setScrolledToBottom] = useState(false);
-  const [isExpanded, setExpanded] = useState(false);
-
-  const expandProps = useSpring({
-    height: isExpanded ? 50 : 0, // Ajuste a altura conforme necessário
-  });
 
   const fadeInButtonProps = useSpring({
     opacity: isScrolledToBottom ? 1 : 0,
@@ -26,8 +21,6 @@ export default function Home() {
   const jumpProps = useSpring({
     y: isScrolledToBottom ? -10 : 5,
   });
-
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,22 +34,10 @@ export default function Home() {
       setScrolledToBottom(scrollPosition > bottomThreshold);
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        buttonRef.current &&
-        buttonRef.current.contains &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setExpanded(false);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
-    document.addEventListener("click", handleClickOutside);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
@@ -163,52 +144,9 @@ export default function Home() {
       {isScrolledToBottom && (
         <animated.button
           className="bg-zinc-900 p-2 rounded cursor-pointer absolute bottom-0 left-1/2 opacity-75"
-          onClick={() => setExpanded(!isExpanded)}
           style={{ ...fadeInButtonProps, ...jumpProps }}
-          ref={buttonRef}
         >
-          <div
-            onClick={(e) => {
-              // Evita que o clique dentro da div propague para o botão
-              e.stopPropagation();
-            }}
-            className="flex items-center justify-center"
-          >
-            <animated.div
-              style={expandProps}
-              onClick={(e) => {
-                // Se a div estiver expandida, impede que o clique propague para o botão
-                if (isExpanded) {
-                  setExpanded(true); // Mantém o estado atual
-                  e.stopPropagation();
-                }
-              }}
-            >
-              {isExpanded && (
-                <p className="text-gray-300">
-                  Chamei sua atenção? - Descubra mais sobre minha jornada
-                  clicando{" "}
-                  <Link
-                    href="/about"
-                    className="underline text-white hover:text-gray-500"
-                  >
-                    aqui
-                  </Link>
-                  , nobre visitante!
-                </p>
-              )}
-            </animated.div>
-
-            {!isExpanded && (
-              <FaLongArrowAltDown
-                className="text-white"
-                onMouseDown={(e: { preventDefault: () => void }) => {
-                  e.preventDefault(); // Evita que o evento de clique seja propagado para o botão
-                  setExpanded(true);
-                }}
-              />
-            )}
-          </div>
+          <FaLongArrowAltDown />
         </animated.button>
       )}
     </div>
