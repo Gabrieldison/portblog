@@ -27,7 +27,7 @@ export default function Home() {
     y: isScrolledToBottom ? -10 : 5,
   });
 
-  const buttonRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,13 +40,13 @@ export default function Home() {
 
       setScrolledToBottom(scrollPosition > bottomThreshold);
     };
-    const handleClickOutside = (event: any) => {
+
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         buttonRef.current &&
-        "contains" in buttonRef.current &&
-        !buttonRef.current.contains(event.target)
+        buttonRef.current.contains &&
+        !buttonRef.current.contains(event.target as Node)
       ) {
-        // Clique fora do botão, fecha o conteúdo expandido
         setExpanded(false);
       }
     };
@@ -202,7 +202,7 @@ export default function Home() {
             {!isExpanded && (
               <FaLongArrowAltDown
                 className="text-white"
-                onMouseDown={(e) => {
+                onMouseDown={(e: { preventDefault: () => void }) => {
                   e.preventDefault(); // Evita que o evento de clique seja propagado para o botão
                   setExpanded(true);
                 }}
