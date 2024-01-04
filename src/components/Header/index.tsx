@@ -8,8 +8,28 @@ import {
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { IoMdSunny } from "react-icons/io";
+import { IoMdMoon } from "react-icons/io";
+import { useSpring, animated } from "react-spring";
+import Image from "next/image";
 
 export default function Header() {
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  const { rotation } = useSpring({
+    rotation: isDarkMode ? 180 : 0,
+  });
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", isDarkMode);
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+    localStorage.setItem("modoEscuro", String(!isDarkMode)); // Convertendo para string
+  };
+
   const router = useRouter();
 
   // Verificar se não está na página inicial
@@ -27,7 +47,7 @@ export default function Header() {
         </Link>
       )}
 
-      <nav className="text-gray-300 flex gap-5 items-center">
+      <nav className="flex gap-5 items-center">
         <Link
           href="https://www.linkedin.com/in/gabriel-dison/"
           target="_blank"
@@ -64,6 +84,23 @@ export default function Header() {
           Projetos
         </Link>
       </nav>
+
+      <button
+        onClick={toggleDarkMode}
+        className="darkModeToggle focus:outline-none"
+      >
+        <animated.div
+          style={{
+            transform: rotation.interpolate((r) => `rotate(${r}deg)`),
+          }}
+        >
+          {isDarkMode ? (
+            <IoMdMoon className="icon transform rotate-180" />
+          ) : (
+            <IoMdSunny />
+          )}
+        </animated.div>
+      </button>
     </header>
   );
 }

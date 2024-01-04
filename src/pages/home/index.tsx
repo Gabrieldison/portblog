@@ -7,7 +7,7 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 export default function Home() {
@@ -47,19 +47,19 @@ export default function Home() {
         <h1 className="text-4xl mb-4 font-bold">Gabriel dison</h1>
 
         <div>
-          <p className="mb-4 text-gray-300">
+          <p className="mb-4">
             Era uma vez no mundo do código, um destemido cavaleiro chamado Sir
             Gabriel. Ele se autodenominava o Mestre do Backend, com suas
             habilidades afiadas em Node.js.
           </p>
-          <p className="mb-4  text-gray-300">
+          <p className="mb-4 ">
             Um dia, Gabriel decidiu erguer um castelo digital, um portfólio,
             para mostrar ao mundo suas proezas. Mas ele sabia que não era um
             artista das animações reluzentes e das maravilhas visuais, afinal,
             seu coração pulsava em linhas de código, não em pincéis digitais!
           </p>
 
-          <p className="mb-4 text-gray-300 ">
+          <p className="mb-4 ">
             Ele ergueu esse portfólio não só para exibir suas habilidades, mas
             também como um posto avançado para seus seguidores encontrarem-no no
             vasto reino da internet. É sua fortaleza de contato, o marketing de
@@ -67,7 +67,7 @@ export default function Home() {
             damas digitais!
           </p>
 
-          <p className="mb-4 text-gray-300">
+          <p className="mb-4">
             Além disso, Gabriel tinha uma torre de conhecimento, onde ele
             compartilhava sua sabedoria através de um{" "}
             <Link
@@ -87,13 +87,13 @@ export default function Home() {
             .
           </p>
 
-          <p className="mb-4 text-gray-300">
+          <p className="mb-4">
             Assim, desde 2020 Gabriel começou sua jornada. Seu coração ardia de
             paixão pela tecnologia, e ele sabia que cada linha de código era uma
             chance de mudar vidas
           </p>
 
-          <p className="mb-4 text-gray-300">
+          <p className="mb-4">
             E assim, nobres senhores e senhoras, se vocês buscam um cavaleiro
             comprometido com soluções eficientes e inovadoras, Gabriel Dison é o
             homem que os levará à vitória! Basta chamar, e ele estará pronto

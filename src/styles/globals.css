@@ -8,9 +8,14 @@
 }
 
 body {
-  background-color: #050505;
-  color: #f1f1f1;
+  background-color: #ffffff; /* Cor de fundo padrão */
+  color: #333333; /* Cor do texto padrão */
   margin: 2rem;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+body.dark-mode {
+  background-color: #050505; /* Altere conforme necessário */
+  color: #ffffff; /* Altere conforme necessário */
 }
