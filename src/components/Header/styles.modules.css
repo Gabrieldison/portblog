@@ -1,9 +1,0 @@
-.icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.dark-mode .icon {
-  transform: rotate(180deg);
-}

@@ -152,3 +152,12 @@ export default function Home() {
     </div>
   );
 }
+
+export async function getStaticProps(context: any) {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${context.locale}.json`))
+        .default,
+    },
+  };
+}

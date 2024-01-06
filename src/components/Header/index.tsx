@@ -12,10 +12,12 @@ import { useEffect, useState } from "react";
 import { IoMdSunny } from "react-icons/io";
 import { IoMdMoon } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../SwitchLocale";
 
 export default function Header() {
   const [isDarkMode, setDarkMode] = useState(false);
+  const router = useRouter();
 
   const { rotation } = useSpring({
     rotation: isDarkMode ? 180 : 0,
@@ -29,8 +31,6 @@ export default function Header() {
     setDarkMode((prevMode) => !prevMode);
     localStorage.setItem("modoEscuro", String(!isDarkMode)); // Convertendo para string
   };
-
-  const router = useRouter();
 
   // Verificar se não está na página inicial
   const notAtHome = router.pathname !== "/";
@@ -101,6 +101,8 @@ export default function Header() {
           )}
         </animated.div>
       </button>
+
+      <LocaleSwitcher />
     </header>
   );
 }
