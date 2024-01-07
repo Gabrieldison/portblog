@@ -12,11 +12,10 @@ import { useEffect, useState } from "react";
 import { IoMdSunny } from "react-icons/io";
 import { IoMdMoon } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
-import { useTranslations } from "next-intl";
 import LocaleSwitcher from "../SwitchLocale";
 
 export default function Header() {
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
   const router = useRouter();
 
   const { rotation } = useSpring({

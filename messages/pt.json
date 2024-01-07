@@ -1,0 +1,5 @@
+{
+  "SwitchLocale": {
+    "switchLocale": "Mudar para {locale, select, en {Inglês}}"
+  }
+}
