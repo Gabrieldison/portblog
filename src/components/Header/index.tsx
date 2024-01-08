@@ -8,14 +8,15 @@ import {
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IoMdSunny } from "react-icons/io";
 import { IoMdMoon } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
-import LocaleSwitcher from "../SwitchLocale";
+import LanguageSwitcher from "../LanguageSwitcher";
+import { useDarkMode } from "@/src/context/DarkModeContext";
 
 export default function Header() {
-  const [isDarkMode, setDarkMode] = useState(true);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const router = useRouter();
 
   const { rotation } = useSpring({
@@ -25,11 +26,6 @@ export default function Header() {
   useEffect(() => {
     document.body.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-    localStorage.setItem("modoEscuro", String(!isDarkMode)); // Convertendo para string
-  };
 
   // Verificar se não está na página inicial
   const notAtHome = router.pathname !== "/";
@@ -101,7 +97,7 @@ export default function Header() {
         </animated.div>
       </button>
 
-      <LocaleSwitcher />
+      <LanguageSwitcher />
     </header>
   );
 }

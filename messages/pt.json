@@ -1,5 +1,7 @@
 {
-  "SwitchLocale": {
-    "switchLocale": "Mudar para {locale, select, en {Inglês}}"
+  "Header": {
+    "switchLanguage": "Mudar idioma",
+    "english": "Inglês",
+    "portuguese": "Português"
   }
 }

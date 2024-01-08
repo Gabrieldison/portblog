@@ -5,11 +5,10 @@ import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
+import { GetStaticPropsContext } from "next";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-
-  console.log(router, "aqui estou eu mais um dia");
 
   return (
     <NextIntlClientProvider
@@ -23,4 +22,12 @@ export default function App({ Component, pageProps }: AppProps) {
       </Layout>
     </NextIntlClientProvider>
   );
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
 }

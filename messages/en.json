@@ -1,5 +1,7 @@
 {
-  "SwitchLocale": {
-    "switchLocale": "Switch to {locale, select, en {English} other {Unknown}}"
+  "Header": {
+    "switchLanguage": "Switch language",
+    "english": "English",
+    "portuguese": "Portuguese"
   }
 }

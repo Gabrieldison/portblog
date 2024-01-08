@@ -9,6 +9,8 @@ import {
 import { MdEmail } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
+import { GetStaticPropsContext } from "next";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const [isScrolledToBottom, setScrolledToBottom] = useState(false);
@@ -151,13 +153,4 @@ export default function Home() {
       )}
     </div>
   );
-}
-
-export async function getStaticProps(context: any) {
-  return {
-    props: {
-      messages: (await import(`../../../messages/${context.locale}.json`))
-        .default,
-    },
-  };
 }

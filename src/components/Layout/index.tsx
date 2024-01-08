@@ -1,11 +1,12 @@
+import { DarkModeProvider } from "@/src/context/DarkModeContext";
 import Header from "../Header";
 
 const Layout = ({ children }: any) => {
   return (
-    <div>
+    <DarkModeProvider>
       <Header />
-      <main className="p-4">{children}</main>
-    </div>
+      <main>{children}</main>
+    </DarkModeProvider>
   );
 };
 

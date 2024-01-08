@@ -12,8 +12,8 @@ const nextConfig = {
     ],
   },
   i18n: {
-    locales: ["pt", "en"],
-    defaultLocale: "pt",
+    locales: ['en', 'pt'],
+    defaultLocale: 'pt',
   },
 };
 
