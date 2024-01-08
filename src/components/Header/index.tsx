@@ -9,8 +9,7 @@ import {
 import { MdEmail } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
 import { useEffect } from "react";
-import { IoMdSunny } from "react-icons/io";
-import { IoMdMoon } from "react-icons/io";
+import { IoMdSunny, IoMdMoon } from "react-icons/io";
 import { useSpring, animated } from "react-spring";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { useDarkMode } from "@/src/context/DarkModeContext";
@@ -27,77 +26,75 @@ export default function Header() {
     document.body.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
-  // Verificar se não está na página inicial
   const notAtHome = router.pathname !== "/";
 
+  const iconSize = 17; // Tamanho máximo do ícone ajustado para 20px
+
   return (
-    <header className="flex justify-between items-center mb-16">
-      {notAtHome ? (
-        <Link href="/">
-          <FaArrowLeft size={20} />
-        </Link>
-      ) : (
-        <Link href="/">
-          <AiFillCodepenSquare size={30} />
-        </Link>
-      )}
-
-      <nav className="flex gap-5 items-center">
-        <Link
-          href="https://www.linkedin.com/in/gabriel-dison/"
-          target="_blank"
-          className=" hover:text-white"
-        >
-          <AiFillLinkedin />
-        </Link>
-        <Link
-          href="https://github.com/Gabrieldison"
-          target="_blank"
-          className="hover:text-white"
-        >
-          <AiFillGithub />
-        </Link>
-        <Link
-          href="mailto:gabriel.disonreis@gmail.com"
-          target="_blank"
-          className="hover:text-white"
-        >
-          <MdEmail />
-        </Link>
-        <Link
-          href="https://wa.me/5584981549159"
-          target="_blank"
-          className="hover:text-white"
-        >
-          <AiOutlineWhatsApp />
-        </Link>
-
-        <Link href="/blog" className=" hover:text-white text-lg">
-          Blog
-        </Link>
-        <Link href="/projects" className=" hover:text-white text-lg">
-          Projetos
-        </Link>
-      </nav>
-
-      <button
-        onClick={toggleDarkMode}
-        className="darkModeToggle focus:outline-none"
-      >
-        <animated.div
-          style={{
-            transform: rotation.interpolate((r) => `rotate(${r}deg)`),
-          }}
-        >
-          {isDarkMode ? (
-            <IoMdMoon className="icon transform rotate-180" />
+    <header className="flex justify-between items-center">
+      <div className="flex items-center">
+        <div className="logo mr-4">
+          {notAtHome ? (
+            <Link href="/">
+              <FaArrowLeft size={20} />
+            </Link>
           ) : (
-            <IoMdSunny />
+            <Link href="/">
+              <AiFillCodepenSquare size={31} />
+            </Link>
           )}
-        </animated.div>
-      </button>
+        </div>
+        <LanguageSwitcher />
+      </div>
 
-      <LanguageSwitcher />
+      <div className="flex items-center">
+        <nav className="flex gap-5 items-center">
+          {[
+            { href: "/blog", text: "Blog" },
+            { href: "/projects", text: "Projetos" },
+            {
+              href: "https://www.linkedin.com/in/gabriel-dison/",
+              icon: <AiFillLinkedin />,
+            },
+            { href: "https://github.com/Gabrieldison", icon: <AiFillGithub /> },
+            { href: "mailto:gabriel.disonreis@gmail.com", icon: <MdEmail /> },
+            {
+              href: "https://wa.me/5584981549159",
+              icon: <AiOutlineWhatsApp />,
+            },
+          ].map(({ href, icon, text }, index) => (
+            <Link
+              key={index}
+              href={href}
+              target={href === "/blog" || href === "/projects" ? "" : "_blank"}
+              className="hover:text-white"
+            >
+              {icon ? icon : text}
+            </Link>
+          ))}
+        </nav>
+
+        <button
+          onClick={toggleDarkMode}
+          className="darkModeToggle focus:outline-none pl-4"
+        >
+          <animated.div
+            style={{
+              width: `${iconSize}px`,
+              height: `${iconSize}px`,
+              display: "flex",
+              alignItems: "center",
+              transform: rotation.to((r) => `rotate(${r}deg)`),
+            }}
+          >
+            {isDarkMode ? (
+              <IoMdMoon className="icon transform rotate-180 w-full h-full" />
+            ) : (
+              <IoMdSunny className="w-full h-full" />
+            )}
+          </animated.div>
+        </button>
+      </div>
     </header>
   );
 }

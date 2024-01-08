@@ -18,9 +18,9 @@ const LanguageSwitcher = () => {
       value={router.locale}
       className={`${
         isDarkMode
-          ? "bg-gray-800 text-white"
+          ? "bg-zinc-950 text-white"
           : "bg-white text-gray-800 border border-gray-300"
-      } rounded px-3 py-2 outline-none`}
+      } rounded py-1 outline-none`}
     >
       <option value="en">{t("english")}</option>
       <option value="pt">{t("portuguese")}</option>
