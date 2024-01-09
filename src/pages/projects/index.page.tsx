@@ -16,7 +16,7 @@ const Projects = () => {
           href={project.html_url}
           target="_blank"
           key={project.id}
-          className="flex gap-5 bg-zinc-900 rounded items-center pb-2 justify-start"
+          className="flex gap-5 bg-zinc-900 rounded items-center pb-2"
         >
           <AiFillApi size={50} className="ml-2" />
 

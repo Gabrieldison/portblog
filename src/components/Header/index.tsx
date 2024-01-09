@@ -68,7 +68,11 @@ export default function Header() {
               key={index}
               href={href}
               target={href === "/blog" || href === "/projects" ? "" : "_blank"}
-              className="hover:text-white transition duration-150 delay-100"
+              className={`${
+                isDarkMode
+                  ? "hover:text-white transition duration-150 delay-100"
+                  : "hover:text-gray-400 transition duration-150 delay-100"
+              }`}
             >
               {icon ? icon : text}
             </Link>
