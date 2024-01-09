@@ -9,10 +9,11 @@ import {
 import { MdEmail } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
 import { useEffect } from "react";
-import { IoMdSunny, IoMdMoon } from "react-icons/io";
+import { MdOutlineWbSunny } from "react-icons/md";
 import { useSpring, animated } from "react-spring";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { useDarkMode } from "@/src/context/DarkModeContext";
+import { BsMoonStars } from "react-icons/bs";
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -28,12 +29,12 @@ export default function Header() {
 
   const notAtHome = router.pathname !== "/";
 
-  const iconSize = 17; // Tamanho máximo do ícone ajustado para 20px
+  const iconSize = 16; // Tamanho máximo do ícone ajustado para 20px
 
   return (
     <header className="flex justify-between items-center">
       <div className="flex items-center">
-        <div className="logo mr-4">
+        <div className={`logo mr-4 ${isDarkMode ? "text-white" : null}`}>
           {notAtHome ? (
             <Link href="/">
               <FaArrowLeft size={20} />
@@ -67,7 +68,7 @@ export default function Header() {
               key={index}
               href={href}
               target={href === "/blog" || href === "/projects" ? "" : "_blank"}
-              className="hover:text-white"
+              className="hover:text-white transition duration-150 delay-100"
             >
               {icon ? icon : text}
             </Link>
@@ -88,9 +89,9 @@ export default function Header() {
             }}
           >
             {isDarkMode ? (
-              <IoMdMoon className="icon transform rotate-180 w-full h-full" />
+              <BsMoonStars className="icon transform rotate-180 w-full h-full" />
             ) : (
-              <IoMdSunny className="w-full h-full" />
+              <MdOutlineWbSunny className="w-full h-full" />
             )}
           </animated.div>
         </button>

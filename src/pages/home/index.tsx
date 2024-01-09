@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className="relative">
       <main className="justify-center items-center">
-        <h1 className="text-4xl mb-4 font-bold">Gabriel dison</h1>
+        <h1 className="mb-4">Gabriel dison</h1>
 
         <div>
           <p className="mb-4">
