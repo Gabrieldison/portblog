@@ -4,9 +4,11 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Footer from "@/src/components/Footer";
+import { useDarkMode } from "@/src/context/DarkModeContext";
 
 export default function Home() {
   const [isScrolledToBottom, setScrolledToBottom] = useState(false);
+  const { isDarkMode } = useDarkMode();
 
   const fadeInButtonProps = useSpring({
     opacity: isScrolledToBottom ? 1 : 0,
@@ -64,10 +66,14 @@ export default function Home() {
 
           <p className="mb-4">
             Além disso, Gabriel tinha uma torre de conhecimento, onde ele
-            compartilhava sua sabedoria através de um{" "}
+            compartilhava sua sabedoria através de um {""}
             <Link
               href="/blog"
-              className="underline text-white  hover:text-gray-500"
+              className={`${
+                isDarkMode
+                  ? "underline text-white hover:text-gray-500"
+                  : "underline text-black font-medium hover:text-gray-400"
+              }`}
             >
               blog
             </Link>
@@ -75,7 +81,11 @@ export default function Home() {
             troféus de suas batalhas, ou seja, todos os seus{" "}
             <Link
               href="/projects"
-              className="underline text-white hover:text-gray-500"
+              className={`${
+                isDarkMode
+                  ? "underline text-white hover:text-gray-500"
+                  : "underline text-black font-medium hover:text-gray-400"
+              }`}
             >
               projetos
             </Link>
