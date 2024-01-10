@@ -18,6 +18,8 @@ import { BsMoonStars } from "react-icons/bs";
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const router = useRouter();
+  const notAtHome = router.pathname !== "/";
+  const iconSize = 16; // Tamanho máximo do ícone ajustado para 20px
 
   const { rotation } = useSpring({
     rotation: isDarkMode ? 180 : 0,
@@ -27,18 +29,14 @@ export default function Header() {
     document.body.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
-  const notAtHome = router.pathname !== "/";
-
-  const iconSize = 16; // Tamanho máximo do ícone ajustado para 20px
-
   return (
     <header className="flex justify-between items-center">
       <div className="flex items-center">
         <div className={`logo mr-4 ${isDarkMode ? "text-white" : null}`}>
           {notAtHome ? (
-            <Link href="/">
+            <button onClick={() => router.back()}>
               <FaArrowLeft size={20} />
-            </Link>
+            </button>
           ) : (
             <Link href="/">
               <AiFillCodepenSquare size={31} />
