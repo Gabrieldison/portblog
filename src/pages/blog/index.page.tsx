@@ -2,9 +2,11 @@ import { createClient } from "@/src/prismicio";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Blog = () => {
   const [postList, setPostList] = useState<any[]>([]);
+  const t = useTranslations("Blog");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +29,7 @@ const Blog = () => {
   );
 
   if (!postList) {
-    return <div>Loading...</div>;
+    return <div>{t("loading")}</div>;
   }
 
   return (
