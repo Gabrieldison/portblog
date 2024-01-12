@@ -1,4 +1,5 @@
 import { useDarkMode } from "@/src/context/DarkModeContext";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import {
   AiFillGithub,
@@ -9,9 +10,10 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   const { isDarkMode } = useDarkMode();
+  const t = useTranslations("Footer");
   return (
     <footer className="mb-4">
-      <p>Você pode entrar em contato com Gabriel nos seguintes canais: </p>
+      <p>{t("p")}</p>
 
       <nav
         className={`flex items-center mt-4  ${

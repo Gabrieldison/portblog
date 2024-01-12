@@ -2,6 +2,22 @@
   "Header": {
     "switchLanguage": "Switch language",
     "english": "English",
-    "portuguese": "Portuguese"
+    "portuguese": "Portuguese",
+    "projects": "Projects"
+  },
+  "Home": {
+    "p1": "Once upon a time in the world of code, a fearless knight named Sir Gabriel emerged. He dubbed himself the Master of Backend, wielding sharp skills in Node.js.",
+    "p2": "One day, Gabriel decided to erect a digital castle, a portfolio, to showcase his feats to the world. Yet, he knew he wasn't a master of shimmering animations and visual wonders; after all, his heart beat in lines of code, not digital brushes!",
+    "p3": "He raised this portfolio not only to display his skills but also as an outpost for his followers to find him in the vast realm of the internet. It was his fortress of contact, a personal inbound marketing that drew even the most unsuspecting digital knights and ladies!",
+    "p4": {
+      "span1": "Moreover, Gabriel had a tower of knowledge where he shared his wisdom through a ",
+      "span2": "And in his virtual halls, visitors could behold the trophies of his battles, namely, all his ",
+      "projects": "projects"
+    },
+    "p5": "Thus, since 2020, Gabriel began his journey. His heart burned with a passion for technology, and he knew that every line of code was a chance to change lives.",
+    "p6": "And so, noble lords and ladies, if you seek a knight committed to efficient and innovative solutions, Gabriel Dison is the man who will lead you to victory! Just call, and he will be ready to fight by your side."
+  },
+  "Footer": {
+    "p": "You can contact Gabriel through the following channels:"
   }
 }

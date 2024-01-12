@@ -5,10 +5,13 @@ import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Footer from "@/src/components/Footer";
 import { useDarkMode } from "@/src/context/DarkModeContext";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
   const [isScrolledToBottom, setScrolledToBottom] = useState(false);
   const { isDarkMode } = useDarkMode();
+  const t = useTranslations("Home");
+  const tHeader = useTranslations("Header");
 
   const fadeInButtonProps = useSpring({
     opacity: isScrolledToBottom ? 1 : 0,
@@ -44,29 +47,14 @@ export default function Home() {
         <h1 className="mb-4">Gabriel dison</h1>
 
         <div>
-          <p className="mb-4">
-            Era uma vez no mundo do código, um destemido cavaleiro chamado Sir
-            Gabriel. Ele se autodenominava o Mestre do Backend, com suas
-            habilidades afiadas em Node.js.
-          </p>
-          <p className="mb-4 ">
-            Um dia, Gabriel decidiu erguer um castelo digital, um portfólio,
-            para mostrar ao mundo suas proezas. Mas ele sabia que não era um
-            artista das animações reluzentes e das maravilhas visuais, afinal,
-            seu coração pulsava em linhas de código, não em pincéis digitais!
-          </p>
+          <p className="mb-4">{t("p1")}</p>
 
-          <p className="mb-4 ">
-            Ele ergueu esse portfólio não só para exibir suas habilidades, mas
-            também como um posto avançado para seus seguidores encontrarem-no no
-            vasto reino da internet. É sua fortaleza de contato, o marketing de
-            entrada pessoal que atrai até os mais desavisados cavalheiros e
-            damas digitais!
-          </p>
+          <p className="mb-4 ">{t("p2")}</p>
+
+          <p className="mb-4 ">{t("p3")}</p>
 
           <p className="mb-4">
-            Além disso, Gabriel tinha uma torre de conhecimento, onde ele
-            compartilhava sua sabedoria através de um {""}
+            <span>{t("p4.span1")}</span>
             <Link
               href="/blog"
               className={`${
@@ -77,8 +65,7 @@ export default function Home() {
             >
               blog
             </Link>
-            . E em seus salões virtuais, os visitantes podiam contemplar os
-            troféus de suas batalhas, ou seja, todos os seus{" "}
+            .<span className="ml-1">{t("p4.span2")}</span>
             <Link
               href="/projects"
               className={`${
@@ -87,36 +74,16 @@ export default function Home() {
                   : "underline text-black font-medium hover:text-gray-400"
               }`}
             >
-              projetos
+              {t("p4.projects")}
             </Link>
-            .
           </p>
 
-          <p className="mb-4">
-            Assim, desde 2020 Gabriel começou sua jornada. Seu coração ardia de
-            paixão pela tecnologia, e ele sabia que cada linha de código era uma
-            chance de mudar vidas
-          </p>
+          <p className="mb-4">{t("p5")}</p>
 
-          <p className="mb-4">
-            E assim, nobres senhores e senhoras, se vocês buscam um cavaleiro
-            comprometido com soluções eficientes e inovadoras, Gabriel Dison é o
-            homem que os levará à vitória! Basta chamar, e ele estará pronto
-            para lutar ao seu lado.
-          </p>
+          <p className="mb-4">{t("p6")}</p>
         </div>
       </main>
-
       <Footer />
-
-      {isScrolledToBottom && (
-        <animated.button
-          className="bg-zinc-900 p-2 rounded cursor-pointer absolute bottom-0 left-1/2 opacity-75"
-          style={{ ...fadeInButtonProps, ...jumpProps }}
-        >
-          <FaLongArrowAltDown />
-        </animated.button>
-      )}
     </div>
   );
 }
