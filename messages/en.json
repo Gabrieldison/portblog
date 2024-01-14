@@ -1,9 +1,9 @@
 {
   "Header": {
-    "switchLanguage": "Switch language",
-    "english": "English",
-    "portuguese": "Portuguese",
     "projects": "Projects"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "{locale, select, en {English} pt {Portuguese} other {Unknown}}"
   },
   "Home": {
     "p1": "Once upon a time in the world of code, a fearless knight named Sir Gabriel emerged. He dubbed himself the Master of Backend, wielding sharp skills in Node.js.",

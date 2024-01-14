@@ -19,6 +19,7 @@ import { useTranslations } from "next-intl";
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const router = useRouter();
+
   const tHeader = useTranslations("Header");
 
   const notAtHome = router.pathname !== "/";
@@ -54,7 +55,10 @@ export default function Header() {
         <nav className="flex gap-5 items-center">
           {[
             { href: "/blog", text: "Blog" },
-            { href: "/projects", text: `${tHeader("projects")}` },
+            {
+              href: "/projects",
+              text: `${tHeader("projects")}`,
+            },
             {
               href: "https://www.linkedin.com/in/gabriel-dison/",
               icon: <AiFillLinkedin />,
