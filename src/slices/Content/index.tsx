@@ -15,7 +15,12 @@ const Section = ({ slice }: SectionProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <PrismicRichText field={slice.primary.content} />
+      <PrismicRichText
+        field={slice.primary.content}
+        components={{
+          paragraph: ({ children }) => <p className="mb-6">{children}</p>,
+        }}
+      />
     </section>
   );
 };

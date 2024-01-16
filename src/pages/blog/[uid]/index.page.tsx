@@ -35,9 +35,11 @@ const Post = () => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h1 className="text-5xl">{post.title[0].text}</h1>
-      <SliceZone slices={post.slices} components={components} />
+      <div className="mx-40 text-center">
+        <SliceZone slices={post.slices} components={components} />
+      </div>
     </div>
   );
 };

@@ -18,7 +18,9 @@ const Subtitle = ({ slice }: SubtitleProps): JSX.Element => {
       <PrismicRichText
         field={slice.primary.subtitle}
         components={{
-          heading3: ({ children }) => <h3 className="text-3xl">{children}</h3>,
+          heading3: ({ children }) => (
+            <h3 className="text-3xl mt-10 mb-3">{children}</h3>
+          ),
         }}
       />
     </section>

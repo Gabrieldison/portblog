@@ -38,15 +38,9 @@ export default function Header() {
     <header className="flex justify-between items-center">
       <div className="flex items-center">
         <div className={`logo mr-4 ${isDarkMode ? "text-white" : null}`}>
-          {notAtHome ? (
-            <button onClick={() => router.back()}>
-              <FaArrowLeft size={20} />
-            </button>
-          ) : (
-            <Link href="/">
-              <AiFillCodepenSquare size={31} />
-            </Link>
-          )}
+          <Link href="/">
+            <AiFillCodepenSquare size={31} />
+          </Link>
         </div>
         <LanguageSwitcher />
       </div>

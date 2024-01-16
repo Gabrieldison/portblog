@@ -44,17 +44,6 @@ interface PostsDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * thumbnail field in *posts*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: posts.thumbnail
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  thumbnail: prismic.ImageField<never>;
-
-  /**
    * Slice Zone field in *posts*
    *
    * - **Field Type**: Slice Zone
@@ -79,48 +68,6 @@ export type PostsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 
 export type AllDocumentTypes = PostsDocument;
-
-/**
- * Primary content in *Demo → Primary*
- */
-export interface DemoSliceDefaultPrimary {
-  /**
-   * demo field in *Demo → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: demo.primary.demo
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  demo: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for Demo Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DemoSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<DemoSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Demo*
- */
-type DemoSliceVariation = DemoSliceDefault;
-
-/**
- * Demo Shared Slice
- *
- * - **API ID**: `demo`
- * - **Description**: Demo
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type DemoSlice = prismic.SharedSlice<"demo", DemoSliceVariation>;
 
 /**
  * Primary content in *Image → Primary*
@@ -207,51 +154,6 @@ type LinkSliceVariation = LinkSliceDefault;
 export type LinkSlice = prismic.SharedSlice<"link", LinkSliceVariation>;
 
 /**
- * Primary content in *SaleProject → Primary*
- */
-export interface SaleProjectSliceDefaultPrimary {
-  /**
-   * descriptionSaleProject field in *SaleProject → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sale_project.primary.descriptionSaleProject
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  descriptionSaleProject: prismic.RichTextField;
-}
-
-/**
- * Default variation for SaleProject Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SaleProjectSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<SaleProjectSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *SaleProject*
- */
-type SaleProjectSliceVariation = SaleProjectSliceDefault;
-
-/**
- * SaleProject Shared Slice
- *
- * - **API ID**: `sale_project`
- * - **Description**: SaleProject
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SaleProjectSlice = prismic.SharedSlice<
-  "sale_project",
-  SaleProjectSliceVariation
->;
-
-/**
  * Primary content in *Content → Primary*
  */
 export interface SectionSliceDefaultPrimary {
@@ -297,60 +199,18 @@ export type SectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Stacks → Primary*
- */
-export interface StacksSliceDefaultPrimary {
-  /**
-   * stacks field in *Stacks → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: stacks.primary.stacks
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  stacks: prismic.KeyTextField;
-}
-
-/**
- * Default variation for Stacks Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type StacksSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<StacksSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Stacks*
- */
-type StacksSliceVariation = StacksSliceDefault;
-
-/**
- * Stacks Shared Slice
- *
- * - **API ID**: `stacks`
- * - **Description**: Stacks
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type StacksSlice = prismic.SharedSlice<"stacks", StacksSliceVariation>;
-
-/**
  * Primary content in *Subtitle → Primary*
  */
 export interface SubtitleSliceDefaultPrimary {
   /**
    * subtitle field in *Subtitle → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: subtitle.primary.subtitle
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  subtitle: prismic.RichTextField;
+  subtitle: prismic.TitleField;
 }
 
 /**
@@ -397,10 +257,6 @@ declare module "@prismicio/client" {
       PostsDocumentData,
       PostsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      DemoSlice,
-      DemoSliceDefaultPrimary,
-      DemoSliceVariation,
-      DemoSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceVariation,
@@ -409,18 +265,10 @@ declare module "@prismicio/client" {
       LinkSliceDefaultPrimary,
       LinkSliceVariation,
       LinkSliceDefault,
-      SaleProjectSlice,
-      SaleProjectSliceDefaultPrimary,
-      SaleProjectSliceVariation,
-      SaleProjectSliceDefault,
       SectionSlice,
       SectionSliceDefaultPrimary,
       SectionSliceVariation,
       SectionSliceDefault,
-      StacksSlice,
-      StacksSliceDefaultPrimary,
-      StacksSliceVariation,
-      StacksSliceDefault,
       SubtitleSlice,
       SubtitleSliceDefaultPrimary,
       SubtitleSliceVariation,
