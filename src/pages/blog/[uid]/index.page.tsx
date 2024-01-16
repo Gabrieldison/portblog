@@ -17,8 +17,6 @@ const Post = () => {
 
         const fetchedPost = await client.getByUID("posts", postUID);
 
-        console.log(fetchedPost, "EU SOU O CONSOLE LOG DE DENTRO");
-
         setPost(fetchedPost.data);
       } catch (error) {
         console.error("Erro ao buscar dados do Prismic:", error);
@@ -28,16 +26,18 @@ const Post = () => {
     fetchData();
   }, [query?.uid]);
 
-  console.log(post, "EU SOU O CONSOLE LOG DE FORA");
-
   if (!post) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-5xl">{post.title[0].text}</h1>
-      <div className="mx-40 text-center">
+    <div className="max-w-2xl mx-auto my-8">
+      <h1 className="text-4xl font-bold mb-4">{post.title[0].text}</h1>
+      <div className="prose max-w-full mx-auto">
         <SliceZone slices={post.slices} components={components} />
       </div>
     </div>
