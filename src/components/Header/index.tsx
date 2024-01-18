@@ -7,7 +7,6 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
-import { FaArrowLeft } from "react-icons/fa";
 import { useEffect } from "react";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { useSpring, animated } from "react-spring";
@@ -21,8 +20,6 @@ export default function Header() {
   const router = useRouter();
 
   const tHeader = useTranslations("Header");
-
-  const notAtHome = router.pathname !== "/";
 
   const iconSize = 16;
 
@@ -72,6 +69,8 @@ export default function Header() {
                 isDarkMode
                   ? "hover:text-white transition duration-150 delay-100"
                   : "hover:text-gray-400 transition duration-150 delay-100"
+              } ${isDarkMode && router.pathname === href ? "text-white" : ""} ${
+                !isDarkMode && router.pathname === href ? "text-black" : ""
               }`}
             >
               {icon ? icon : text}
