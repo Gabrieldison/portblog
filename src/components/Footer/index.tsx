@@ -12,7 +12,7 @@ const Footer = () => {
   const { isDarkMode } = useDarkMode();
   const t = useTranslations("Footer");
   return (
-    <footer className="mb-4">
+    <footer className="mb-4 mt-4">
       <p>{t("p")}</p>
 
       <nav

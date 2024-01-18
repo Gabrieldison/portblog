@@ -11,12 +11,6 @@ export default function Home() {
   const [isScrolledToBottom, setScrolledToBottom] = useState(false);
   const { isDarkMode } = useDarkMode();
   const t = useTranslations("Home");
-  const tHeader = useTranslations("Header");
-
-  const fadeInButtonProps = useSpring({
-    opacity: isScrolledToBottom ? 1 : 0,
-    from: { opacity: 0 },
-  });
 
   const jumpProps = useSpring({
     y: isScrolledToBottom ? -10 : 5,
@@ -42,8 +36,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative">
-      <main className="justify-center items-center">
+    <div className="relative flex flex-col items-center justify-center min-h-screen">
+      <main>
         <h1 className="mb-4">Gabriel dison</h1>
 
         <div>
@@ -83,6 +77,16 @@ export default function Home() {
           <p className="mb-4">{t("p6")}</p>
         </div>
       </main>
+      <animated.button
+        style={jumpProps}
+        className={`${
+          isDarkMode
+            ? "bg-gray-800 text-white p-2 rounded-md absolute bottom-0"
+            : "bg-gray-200 text-black p-2 rounded-md absolute bottom-0"
+        }`}
+      >
+        <FaLongArrowAltDown />
+      </animated.button>
       <Footer />
     </div>
   );

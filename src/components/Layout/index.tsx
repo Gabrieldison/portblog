@@ -5,7 +5,7 @@ const Layout = ({ children }: any) => {
   return (
     <DarkModeProvider>
       <Header />
-      <main className="mt-12">{children}</main>
+      <main>{children}</main>
     </DarkModeProvider>
   );
 };
