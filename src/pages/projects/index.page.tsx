@@ -1,5 +1,5 @@
-import { StackLabels, useGitHubAutomatedRepos } from "github-automated-repos";
 import { useDarkMode } from "@/src/context/DarkModeContext";
+import { StackLabels, useGitHubAutomatedRepos } from "github-automated-repos";
 import Link from "next/link";
 
 interface Project {

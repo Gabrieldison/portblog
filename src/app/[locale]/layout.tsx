@@ -1,50 +1,46 @@
+import { PrismicPreview } from "@prismicio/next";
+import { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Inter } from "next/font/google";
+import { notFound } from "next/navigation";
 import Header from "../../components/Header";
 import { DarkModeProvider } from "../../context/DarkModeContext";
-import { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './styles/globals.css'
-import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../../prismicio";
-import { notFound } from "next/navigation";
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import "./styles/globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Welcome to Next.js',
-}
+  title: "Home",
+  description: "Welcome to Next.js",
+};
 
-const locales = ["pt", "en"]
+const locales = ["pt", "en"];
 
 export default function RootLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string }
+  params: { locale: string };
 }) {
+  const messages = useMessages();
 
   if (!locales.includes(locale)) {
-    notFound()
+    notFound();
   }
 
-  const messages = useMessages();
-  
   return (
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-        <DarkModeProvider>
-          <Header />
-          <main>{children}</main>
-          <PrismicPreview repositoryName={repositoryName} />
-        </DarkModeProvider>
+          <DarkModeProvider>
+            <Header />
+            <main>{children}</main>
+            <PrismicPreview repositoryName={repositoryName} />
+          </DarkModeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
   );
 }
-
-
-

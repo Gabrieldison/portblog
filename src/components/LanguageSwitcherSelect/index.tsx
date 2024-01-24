@@ -1,9 +1,6 @@
-'use client'
-
-import { useTranslations } from "next-intl";
-import { useDarkMode } from "@/src/context/DarkModeContext";
-import { ChangeEvent, ReactNode, useTransition } from 'react';
+"use client";
 import { usePathname, useRouter } from "@/src/navigation";
+import { ChangeEvent, ReactNode, useTransition } from "react";
 
 type Props = {
   children: ReactNode;
@@ -16,8 +13,6 @@ const LanguageSwitcherSelect = ({ children, defaultValue, label }: Props) => {
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
 
-
-
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     const nextLocale = event.target.value;
     startTransition(() => {
@@ -25,10 +20,11 @@ const LanguageSwitcherSelect = ({ children, defaultValue, label }: Props) => {
     });
   }
 
-
   return (
     <label
-      className={`relative text-gray-400 ${isPending && 'transition-opacity [&:disabled]:opacity-30'}`}
+      className={`relative text-gray-400 ${
+        isPending && "transition-opacity [&:disabled]:opacity-30"
+      }`}
     >
       <p className="sr-only">{label}</p>
       <select
