@@ -1,8 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withNextIntl = require('next-intl/plugin')();
+
+module.exports = withNextIntl({
+  // Other Next.js configuration ...
   reactStrictMode: true,
   transpilePackages: ["github-automated-repos"],
-  pageExtensions: ["page.tsx", "api.ts", "api.tsx"],
   images: {
     remotePatterns: [
       {
@@ -11,10 +12,4 @@ const nextConfig = {
       },
     ],
   },
-  i18n: {
-    locales: ["en", "pt"],
-    defaultLocale: "pt",
-  },
-};
-
-module.exports = nextConfig;
+});

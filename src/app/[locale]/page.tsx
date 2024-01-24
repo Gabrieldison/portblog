@@ -1,6 +1,7 @@
+'use client'
+
 import Link from "next/link";
 import { FaLongArrowAltDown } from "react-icons/fa";
-
 import { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Footer from "@/src/components/Footer";
@@ -51,22 +52,20 @@ export default function Home() {
             <span>{t("p4.span1")}</span>
             <Link
               href="/blog"
-              className={`${
-                isDarkMode
-                  ? "underline text-white hover:text-gray-500"
-                  : "underline text-black font-medium hover:text-gray-400"
-              }`}
+              className={`${isDarkMode
+                ? "underline text-white hover:text-gray-500"
+                : "underline text-black font-medium hover:text-gray-400"
+                }`}
             >
               blog
             </Link>
             .<span className="ml-1">{t("p4.span2")}</span>
             <Link
               href="/projects"
-              className={`${
-                isDarkMode
-                  ? "underline text-white hover:text-gray-500"
-                  : "underline text-black font-medium hover:text-gray-400"
-              }`}
+              className={`${isDarkMode
+                ? "underline text-white hover:text-gray-500"
+                : "underline text-black font-medium hover:text-gray-400"
+                }`}
             >
               {t("p4.projects")}
             </Link>
@@ -79,11 +78,10 @@ export default function Home() {
       </main>
       <animated.button
         style={jumpProps}
-        className={`${
-          isDarkMode
-            ? "bg-gray-800 text-white p-2 rounded-md absolute bottom-0"
-            : "bg-gray-200 text-black p-2 rounded-md absolute bottom-0"
-        }`}
+        className={`${isDarkMode
+          ? "bg-gray-800 text-white p-2 rounded-md absolute bottom-0"
+          : "bg-gray-200 text-black p-2 rounded-md absolute bottom-0"
+          }`}
       >
         <FaLongArrowAltDown />
       </animated.button>
