@@ -1,5 +1,6 @@
+'use client'
+
 import Link from "next/link";
-import { useRouter } from "next/router";
 import {
   AiFillCodepenSquare,
   AiFillGithub,
@@ -17,7 +18,6 @@ import { useTranslations } from "next-intl";
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const router = useRouter();
 
   const tHeader = useTranslations("Header");
 
@@ -65,13 +65,10 @@ export default function Header() {
               key={index}
               href={href}
               target={href === "/blog" || href === "/projects" ? "" : "_blank"}
-              className={`${
-                isDarkMode
-                  ? "hover:text-white transition duration-150 delay-100"
-                  : "hover:text-gray-400 transition duration-150 delay-100"
-              } ${isDarkMode && router.pathname === href ? "text-white" : ""} ${
-                !isDarkMode && router.pathname === href ? "text-black" : ""
-              }`}
+              className={`${isDarkMode
+                ? "hover:text-white transition duration-150 delay-100"
+                : "hover:text-gray-400 transition duration-150 delay-100"
+                }`}
             >
               {icon ? icon : text}
             </Link>
