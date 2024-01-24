@@ -1,5 +1,6 @@
+'use client'
+
 import Link from "next/link";
-import { useRouter } from "next/router";
 import {
   AiFillCodepenSquare,
   AiFillGithub,
@@ -10,14 +11,14 @@ import { MdEmail } from "react-icons/md";
 import { useEffect } from "react";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { useSpring, animated } from "react-spring";
-import LanguageSwitcher from "../LanguageSwitcher";
+import LanguageSwitcher from "../LanguageSwitcherSelect";
 import { useDarkMode } from "@/src/context/DarkModeContext";
 import { BsMoonStars } from "react-icons/bs";
 import { useTranslations } from "next-intl";
+import LanguageSwitcherSelect from "../LanguageSwitcherSelect";
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const router = useRouter();
 
   const tHeader = useTranslations("Header");
 
@@ -39,7 +40,10 @@ export default function Header() {
             <AiFillCodepenSquare size={31} />
           </Link>
         </div>
-        <LanguageSwitcher />
+        <LanguageSwitcherSelect defaultValue="pt" label="Português">
+          <option value="pt">Português</option>
+          <option value="en">Inglês</option>
+        </LanguageSwitcherSelect>
       </div>
 
       <div className="flex items-center">
@@ -65,13 +69,10 @@ export default function Header() {
               key={index}
               href={href}
               target={href === "/blog" || href === "/projects" ? "" : "_blank"}
-              className={`${
-                isDarkMode
-                  ? "hover:text-white transition duration-150 delay-100"
-                  : "hover:text-gray-400 transition duration-150 delay-100"
-              } ${isDarkMode && router.pathname === href ? "text-white" : ""} ${
-                !isDarkMode && router.pathname === href ? "text-black" : ""
-              }`}
+              className={`${isDarkMode
+                ? "hover:text-white transition duration-150 delay-100"
+                : "hover:text-gray-400 transition duration-150 delay-100"
+                }`}
             >
               {icon ? icon : text}
             </Link>
