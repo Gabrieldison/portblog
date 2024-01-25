@@ -3,7 +3,8 @@
     "projects": "Projetos"
   },
   "LocaleSwitcher": {
-    "switchLocale": "{locale, select, en {Inglês} pt {Português} other {Desconhecido}}"
+    "label": "Mudar idioma",
+    "locale": "{locale, select, en {Inglês} pt {Português} other {Desconhecido}}"
   },
   "Home": {
     "p1": "Era uma vez no mundo do código, um destemido cavaleiro chamado Sir Gabriel. Ele se autodenominava o Mestre do Backend, com suas habilidades afiadas em Node.js.",

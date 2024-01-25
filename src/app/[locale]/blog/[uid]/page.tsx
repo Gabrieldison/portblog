@@ -1,3 +1,5 @@
+"use client";
+
 import { createClient } from "@/src/prismicio";
 import { components } from "@/src/slices";
 import { SliceZone } from "@prismicio/react";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useDarkMode } from "@/src/context/DarkModeContext";
 import { createClient } from "@/src/prismicio";
 import { useTranslations } from "next-intl";

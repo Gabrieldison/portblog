@@ -32,7 +32,7 @@ export const DarkModeProvider: React.FC<DarkModeContextProps> = ({
 
   return (
     <DarkModeContext.Provider value={value}>
-      {children}
+      <div>{children}</div>
     </DarkModeContext.Provider>
   );
 };

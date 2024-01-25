@@ -13,7 +13,7 @@ import {
 import { BsMoonStars } from "react-icons/bs";
 import { MdEmail, MdOutlineWbSunny } from "react-icons/md";
 import { animated, useSpring } from "react-spring";
-import LanguageSwitcherSelect from "../LanguageSwitcherSelect";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -38,10 +38,7 @@ export default function Header() {
             <AiFillCodepenSquare size={31} />
           </Link>
         </div>
-        <LanguageSwitcherSelect defaultValue="pt" label="Português">
-          <option value="pt">Português</option>
-          <option value="en">Inglês</option>
-        </LanguageSwitcherSelect>
+        <LanguageSwitcher />
       </div>
 
       <div className="flex items-center">

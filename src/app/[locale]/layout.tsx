@@ -24,22 +24,23 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = useMessages();
-
   if (!locales.includes(locale)) {
     notFound();
   }
+  const messages = useMessages();
 
   return (
     <html lang={locale}>
-      <body className={inter.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <DarkModeProvider>
-            <Header />
-            <main>{children}</main>
-            <PrismicPreview repositoryName={repositoryName} />
-          </DarkModeProvider>
-        </NextIntlClientProvider>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <div>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <DarkModeProvider>
+              <Header />
+              <div>{children}</div>
+              <PrismicPreview repositoryName={repositoryName} />
+            </DarkModeProvider>
+          </NextIntlClientProvider>
+        </div>
       </body>
     </html>
   );
