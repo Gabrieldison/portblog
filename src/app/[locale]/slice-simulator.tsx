@@ -1,10 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
-import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
-import { SliceZone } from "@prismicio/react";
-import { components } from "../slices";
 
-import { createClient } from "../prismicio";
+import { SliceZone } from "@prismicio/react";
+import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
+import { useEffect, useState } from "react";
+import { components } from "../../slices";
+
+import { createClient } from "../../prismicio";
 
 export default function SliceSimulatorPage() {
   const [slices, setSlices] = useState<any>(null);

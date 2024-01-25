@@ -1,8 +1,10 @@
+"use client";
+
 import { createClient } from "@/src/prismicio";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { SliceZone } from "@prismicio/react";
 import { components } from "@/src/slices";
+import { SliceZone } from "@prismicio/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Post = () => {
   const [post, setPost] = useState<any>(null);

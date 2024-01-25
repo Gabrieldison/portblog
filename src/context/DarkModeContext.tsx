@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { ReactNode, createContext, useContext, useState } from "react";
 
 interface DarkModeContextProps {
   children: ReactNode;
@@ -32,7 +32,7 @@ export const DarkModeProvider: React.FC<DarkModeContextProps> = ({
 
   return (
     <DarkModeContext.Provider value={value}>
-      {children}
+      <div>{children}</div>
     </DarkModeContext.Provider>
   );
 };

@@ -1,8 +1,10 @@
-import { createClient } from "@/src/prismicio";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+"use client";
+
 import { useDarkMode } from "@/src/context/DarkModeContext";
+import { createClient } from "@/src/prismicio";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Blog = () => {
   const [postList, setPostList] = useState<any[]>([]);
