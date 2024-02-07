@@ -1,24 +1,9 @@
-import { Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicImage } from "@prismicio/react";
 
-/**
- * Props for `Image`.
- */
-export type ImageProps = SliceComponentProps<Content.ImageSlice>;
-
-/**
- * Component for "Image" Slices.
- */
-const Image = ({ slice }: ImageProps): JSX.Element => {
+export default function Image({ slice }: any) {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      <PrismicNextImage field={slice.primary.image} />
-    </section>
+    <div>
+      <PrismicImage field={slice.primary?.image} height={300} width={500} />
+    </div>
   );
-};
-
-export default Image;
+}
