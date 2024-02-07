@@ -1,43 +1,28 @@
 import * as prismic from "@prismicio/client";
-import * as prismicNext from "@prismicio/next";
-import config from "../slicemachine.config.json";
 
-/**
- * The project's Prismic repository name.
- */
-export const repositoryName = config.repositoryName;
+// Fill in your repository name
+export const repositoryName = "portfolio-dison";
 
-/**
- * A list of Route Resolver objects that define how a document's `url` field is resolved.
- *
- * {@link https://prismic.io/docs/route-resolver#route-resolver}
- */
-// TODO: Update the routes array to match your project's route structure.
-const routes: prismic.ClientConfig["routes"] = [
-  {
-    type: "posts",
-    path: "/blog",
-  },
-];
+export const client = prismic.createClient(repositoryName, {
+  // If your repository is private, add an access token
+  accessToken: import.meta.env.REPOSITORY_KEY,
 
-/**
- * Creates a Prismic client for the project's repository. The client is used to
- * query content from the Prismic API.
- *
- * @param config - Configuration for the Prismic client.
- */
-export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
-  const client = prismic.createClient(repositoryName, {
-    routes,
-    accessToken: process.env.PRISMIC_API_KEY,
-    ...config,
-  });
+  // This defines how you will structure URL paths in your project.
+  // Update the types to match the custom types in your project, and edit
+  // the paths to match the routing in your project.
+  //
+  // If you are not using a router in your project, you can change this
+  // to an empty array or remove the option entirely.
+  routes: [
+    {
+      type: "posts",
+      path: "/blog",
+    },
 
-  prismicNext.enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
-
-  return client;
-};
+    {
+      type: "posts",
+      path: "/blog/:uid",
+      uid: "primeiro-pots",
+    },
+  ],
+});

@@ -1,23 +1,9 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicLink } from "@prismicio/react";
 
-/**
- * Props for `Link`.
- */
-export type LinkProps = SliceComponentProps<Content.LinkSlice>;
-
-/**
- * Component for "Link" Slices.
- */
-const Link = ({ slice }: LinkProps): JSX.Element => {
+export default function Link({ slice }: any) {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for link (variation: {slice.variation}) Slices
-    </section>
+    <div>
+      <PrismicLink field={slice.primary.link} />
+    </div>
   );
-};
-
-export default Link;
+}

@@ -1,28 +1,9 @@
-import { Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
 
-/**
- * Props for `Section`.
- */
-export type SectionProps = SliceComponentProps<Content.SectionSlice>;
-
-/**
- * Component for "Section" Slices.
- */
-const Section = ({ slice }: SectionProps): JSX.Element => {
+export default function Content({ slice }: any) {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      <PrismicRichText
-        field={slice.primary.content}
-        components={{
-          paragraph: ({ children }) => <p className="mb-6">{children}</p>,
-        }}
-      />
-    </section>
+    <div>
+      <PrismicRichText field={slice.primary.content} />
+    </div>
   );
-};
-
-export default Section;
+}
