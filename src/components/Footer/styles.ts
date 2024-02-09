@@ -20,7 +20,7 @@ export const ContentFooter = styled.div`
   justify-content: center;
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
     color: ${(props) => props.theme["footer-text"]};
   }
