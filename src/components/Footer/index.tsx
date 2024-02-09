@@ -26,9 +26,9 @@ const Footer = () => {
             <AiFillLinkedin />
             LinkedIn
           </ContactLink>
-          <ContactLink href="https://github.com/Gabrieldison" target="_blank">
-            <AiFillGithub />
-            Github
+          <ContactLink href="https://wa.me/5584981549159" target="_blank">
+            <AiOutlineWhatsApp />
+            WhatsApp
           </ContactLink>
           <ContactLink
             href="mailto:gabriel.disonreis@gmail.com"
@@ -37,9 +37,9 @@ const Footer = () => {
             <MdEmail />
             Email
           </ContactLink>
-          <ContactLink href="https://wa.me/5584981549159" target="_blank">
-            <AiOutlineWhatsApp />
-            WhatsApp
+          <ContactLink href="https://github.com/Gabrieldison" target="_blank">
+            <AiFillGithub />
+            Github
           </ContactLink>
         </NavContainer>
       </ContentFooter>
