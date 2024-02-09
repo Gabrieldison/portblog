@@ -3,4 +3,6 @@ export const lightTheme = {
   text: "#000000",
   links: "",
   title: "",
+  "footer-text": "",
+  "background-post": "",
 };

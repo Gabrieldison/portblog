@@ -1,26 +1,19 @@
 import styled from "styled-components";
 
-export const PostContainer = styled.div`
-  display: flex;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.hoverBgColor};
-    border-color: ${({ theme }) => theme.hoverBorderColor};
-  }
-`;
-
 export const PostSection = styled.section`
-  padding: 8px;
+  background: ${(props) => props.theme["background-post"]};
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  padding-left: 18px;
+  border-radius: 6px;
+  transition: background 0.3s ease; /* Transição suave de cor */
 
   h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: 10px;
   }
 
-  span {
-    font-size: 1rem;
+  &:hover {
+    background: ${(props) => props.theme["background-hover"]};
   }
 `;
