@@ -11,9 +11,13 @@ import { RxMoon } from "react-icons/rx";
 import { useNavigate } from "react-router";
 import { useDarkMode } from "../../context/DarkModeContext";
 import {
+  ButtonToggleTheme,
+  ContactsLinkContainer,
+  Divider,
   HeaderContainer,
-  LinksContainer,
-  NavContainer,
+  LogoContainer,
+  MapContainer,
+  NavigationContainer,
   Rotate180,
 } from "./styles";
 
@@ -29,34 +33,41 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <span onClick={() => navigate("/")}>
-        <GiMountedKnight size={40} />
-      </span>
+      <LogoContainer onClick={() => navigate("/")}>
+        <GiMountedKnight size={55} />
+      </LogoContainer>
 
-      <LinksContainer>
-        <NavContainer>
+      <NavigationContainer>
+        <MapContainer>
           <a href="/blog">Blog</a>
           <a href="/projects">Projects</a>
-          <a href="https://www.linkedin.com/in/gabriel-dison/">
-            <AiFillLinkedin size={20} />
-          </a>
-          <a href="https://github.com/Gabrieldison">
-            <AiFillGithub size={20} />
-          </a>
-          <a href="mailto:gabriel.disonreis@gmail.com">
-            <MdEmail size={20} />
-          </a>
-          <a href="https://wa.me/5584981549159">
-            <AiOutlineWhatsApp size={20} />
-          </a>
-        </NavContainer>
+        </MapContainer>
 
-        <button onClick={handleToggleDarkMode}>
+        <Divider>|</Divider>
+
+        <ButtonToggleTheme onClick={handleToggleDarkMode}>
           <Rotate180 isRotated={isRotated}>
             {darkMode ? <RxMoon size={20} /> : <IoSunnyOutline size={20} />}
           </Rotate180>
-        </button>
-      </LinksContainer>
+        </ButtonToggleTheme>
+
+        <Divider>|</Divider>
+
+        <ContactsLinkContainer>
+          <a href="https://www.linkedin.com/in/gabriel-dison/">
+            <AiFillLinkedin size={18} />
+          </a>
+          <a href="https://github.com/Gabrieldison">
+            <AiFillGithub size={18} />
+          </a>
+          <a href="mailto:gabriel.disonreis@gmail.com">
+            <MdEmail size={18} />
+          </a>
+          <a href="https://wa.me/5584981549159">
+            <AiOutlineWhatsApp size={18} />
+          </a>
+        </ContactsLinkContainer>
+      </NavigationContainer>
     </HeaderContainer>
   );
 }

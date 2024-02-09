@@ -2,7 +2,7 @@ import fonts from "google-fonts";
 import { createGlobalStyle } from "styled-components";
 
 fonts.add({
-  Inter: ["400", "500", "600", "700", "800"],
+  Inter: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const GlobalStyle = createGlobalStyle`
@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${(props) => props.theme["background"]};
-    color: ${(props) => props.theme["text"]};
     -webkit-font-smoothing: antialiased;
   }
 

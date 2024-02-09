@@ -42,7 +42,6 @@ export default function Home() {
           lutar ao seu lado.
         </p>
       </StoryContent>
-
       <Footer />
     </Container>
   );

@@ -4,35 +4,45 @@ import {
   AiOutlineWhatsApp,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
-import { ContactLink, FooterContainer } from "./styles";
+import {
+  ContactLink,
+  ContentFooter,
+  Divider,
+  FooterContainer,
+  NavContainer,
+} from "./styles";
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <p>
-        Você pode entrar em contato com Gabriel através dos seguintes canais:
-      </p>
-      <nav>
-        <ContactLink
-          href="https://www.linkedin.com/in/gabriel-dison/"
-          target="_blank"
-        >
-          LinkedIn
-          <AiFillLinkedin />
-        </ContactLink>
-        <ContactLink href="https://github.com/Gabrieldison" target="_blank">
-          Github
-          <AiFillGithub />
-        </ContactLink>
-        <ContactLink href="mailto:gabriel.disonreis@gmail.com" target="_blank">
-          Email
-          <MdEmail />
-        </ContactLink>
-        <ContactLink href="https://wa.me/5584981549159" target="_blank">
-          WhatsApp
-          <AiOutlineWhatsApp />
-        </ContactLink>
-      </nav>
+      <Divider></Divider>
+      <ContentFooter>
+        <p>Encontre-me em:</p>
+        <NavContainer>
+          <ContactLink
+            href="https://www.linkedin.com/in/gabriel-dison/"
+            target="_blank"
+          >
+            <AiFillLinkedin />
+            LinkedIn
+          </ContactLink>
+          <ContactLink href="https://github.com/Gabrieldison" target="_blank">
+            <AiFillGithub />
+            Github
+          </ContactLink>
+          <ContactLink
+            href="mailto:gabriel.disonreis@gmail.com"
+            target="_blank"
+          >
+            <MdEmail />
+            Email
+          </ContactLink>
+          <ContactLink href="https://wa.me/5584981549159" target="_blank">
+            <AiOutlineWhatsApp />
+            WhatsApp
+          </ContactLink>
+        </NavContainer>
+      </ContentFooter>
     </FooterContainer>
   );
 };

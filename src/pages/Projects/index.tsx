@@ -7,7 +7,7 @@ import {
   ProjectLink,
   ProjectList,
   ProjectsContainer,
-} from "./styles"; // Importa os estilos
+} from "./styles";
 
 type Repo = {
   name: string;
