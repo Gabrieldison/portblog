@@ -39,8 +39,8 @@ export default function Header() {
 
       <NavigationContainer>
         <MapContainer>
-          <a href="/blog">Blog</a>
-          <a href="/projects">Projects</a>
+          <a href="/blog">BLOG</a>
+          <a href="/projects">PROJETOS</a>
         </MapContainer>
 
         <Divider>|</Divider>
