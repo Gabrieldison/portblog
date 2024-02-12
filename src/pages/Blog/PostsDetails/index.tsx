@@ -1,6 +1,7 @@
 import { SliceZone, usePrismicDocumentByUID } from "@prismicio/react";
 import { useParams } from "react-router";
 import { Content, Image, Link, Subtitle } from "../../../slices";
+import { Container, Title } from "./styles";
 
 export default function PostDetails() {
   const params = useParams();
@@ -10,8 +11,8 @@ export default function PostDetails() {
   const [document] = usePrismicDocumentByUID("posts", postUID);
 
   return (
-    <div>
-      <h1>{document?.data.title[0].text}</h1>
+    <Container>
+      <Title>{document?.data.title[0].text}</Title>
       <SliceZone
         slices={document?.data.body}
         components={{
@@ -21,6 +22,6 @@ export default function PostDetails() {
           link: Link,
         }}
       />
-    </div>
+    </Container>
   );
 }

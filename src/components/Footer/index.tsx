@@ -39,7 +39,7 @@ const Footer = () => {
           </ContactLink>
           <ContactLink href="https://github.com/Gabrieldison" target="_blank">
             <AiFillGithub size={20} />
-            <p> Github </p>
+            <p> GitHub </p>
           </ContactLink>
         </NavContainer>
       </ContentFooter>
