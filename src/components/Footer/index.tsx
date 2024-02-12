@@ -17,29 +17,29 @@ const Footer = () => {
     <FooterContainer>
       <Divider></Divider>
       <ContentFooter>
-        <p>Encontre-me em:</p>
+        <p>ENCONTRE-ME EM:</p>
         <NavContainer>
           <ContactLink
             href="https://www.linkedin.com/in/gabriel-dison/"
             target="_blank"
           >
-            <AiFillLinkedin />
-            LinkedIn
+            <AiFillLinkedin size={20} />
+            <p>LinkedIn</p>
           </ContactLink>
           <ContactLink href="https://wa.me/5584981549159" target="_blank">
-            <AiOutlineWhatsApp />
-            WhatsApp
+            <AiOutlineWhatsApp size={20} />
+            <p>WhatsApp</p>
           </ContactLink>
           <ContactLink
             href="mailto:gabriel.disonreis@gmail.com"
             target="_blank"
           >
-            <MdEmail />
-            Email
+            <MdEmail size={20} />
+            <p>Email</p>
           </ContactLink>
           <ContactLink href="https://github.com/Gabrieldison" target="_blank">
-            <AiFillGithub />
-            Github
+            <AiFillGithub size={20} />
+            <p> Github </p>
           </ContactLink>
         </NavContainer>
       </ContentFooter>

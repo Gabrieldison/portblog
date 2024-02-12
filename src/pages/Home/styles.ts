@@ -6,7 +6,7 @@ export const Container = styled.main`
 `;
 
 export const Title = styled.h1`
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.25rem;
   margin-bottom: 0.938rem;
   color: ${(props) => props.theme["title"]};
@@ -17,11 +17,11 @@ export const StoryContent = styled.div`
   flex-direction: column;
   align-items: baseline;
   gap: 12px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.938rem;
 
   p {
     color: ${(props) => props.theme["text"]};
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1rem;
     text-align: left;
     line-height: 1.75;

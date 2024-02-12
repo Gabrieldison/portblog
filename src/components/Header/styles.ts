@@ -18,6 +18,7 @@ export const HeaderContainer = styled.header`
   width: 90%;
   margin: auto;
   margin-bottom: 20px;
+  border-bottom: 2px solid ${(props) => props.theme["divider"]};
 `;
 
 export const LogoContainer = styled.span`
@@ -37,8 +38,8 @@ export const MapContainer = styled.div`
   gap: 15px;
 
   a {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 700;
     text-decoration: none;
     transition: color 0.3s ease; /* Transição suave de cor */
     color: ${(props) => props.theme["links"]};
@@ -46,8 +47,8 @@ export const MapContainer = styled.div`
 `;
 
 export const Divider = styled.span`
-  color: ${(props) => props.theme["links"]};
-  opacity: 35%;
+  color: ${(props) => props.theme["divider"]};
+  opacity: 10%;
 `;
 
 export const ButtonToggleTheme = styled.button`

@@ -34,13 +34,13 @@ export default function Header() {
   return (
     <HeaderContainer>
       <LogoContainer onClick={() => navigate("/")}>
-        <GiMountedKnight size={55} />
+        <GiMountedKnight size={50} />
       </LogoContainer>
 
       <NavigationContainer>
         <MapContainer>
-          <a href="/blog">BLOG</a>
           <a href="/projects">PROJETOS</a>
+          <a href="/blog">BLOG</a>
         </MapContainer>
 
         <Divider>|</Divider>
