@@ -48,7 +48,6 @@ export const MapContainer = styled.div`
 
 export const Divider = styled.span`
   color: ${(props) => props.theme["divider"]};
-  opacity: 10%;
 `;
 
 export const ButtonToggleTheme = styled.button`
