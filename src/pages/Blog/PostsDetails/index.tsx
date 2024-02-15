@@ -10,6 +10,8 @@ export default function PostDetails() {
 
   const [document] = usePrismicDocumentByUID("posts", postUID);
 
+  console.log(document);
+
   return (
     <Container>
       <Title>{document?.data.title[0].text}</Title>
