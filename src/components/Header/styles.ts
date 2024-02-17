@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const rotateAnimation = keyframes`
@@ -6,6 +7,22 @@ const rotateAnimation = keyframes`
   }
   to {
     transform: rotate(360deg);
+  }
+`;
+
+export const NavLinkStyled = styled(NavLink)`
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: ${(props) => props.theme["links"]};
+  transition: color 0.3s ease; /* Transição suave de cor */
+
+  &:hover {
+    color: ${(props) => props.theme["title"]};
+  }
+
+  &.active {
+    color: ${(props) => props.theme["title"]}; /* Cor para o link ativo */
   }
 `;
 
@@ -45,15 +62,17 @@ export const MapContainer = styled.div`
   display: flex;
   gap: 15px;
 
-  a {
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
+  ${NavLinkStyled} {
+    /* Aplica estilos ao NavLinkStyled dentro do MapContainer */
     color: ${(props) => props.theme["links"]};
     transition: color 0.3s ease; /* Transição suave de cor */
 
     &:hover {
       color: ${(props) => props.theme["title"]};
+    }
+
+    &.active {
+      color: ${(props) => props.theme["title"]}; /* Cor para o link ativo */
     }
   }
 `;

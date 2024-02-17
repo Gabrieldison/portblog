@@ -8,7 +8,7 @@ import { GiMountedKnight } from "react-icons/gi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { RxMoon } from "react-icons/rx";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../context/DarkModeContext";
 import {
   ButtonToggleTheme,
@@ -17,6 +17,7 @@ import {
   HeaderContainer,
   LogoContainer,
   MapContainer,
+  NavLinkStyled,
   NavigationContainer,
   Rotate180,
 } from "./styles";
@@ -39,8 +40,8 @@ export default function Header() {
 
       <NavigationContainer>
         <MapContainer>
-          <a href="/projects">PROJETOS</a>
-          <a href="/blog">BLOG</a>
+          <NavLinkStyled to="/projects">PROJETOS</NavLinkStyled>
+          <NavLinkStyled to="/blog">BLOG</NavLinkStyled>
         </MapContainer>
 
         <Divider>|</Divider>
