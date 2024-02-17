@@ -1,9 +1,5 @@
-import fonts from "google-fonts";
+// styles.js (ou o nome do seu arquivo de estilos)
 import { createGlobalStyle } from "styled-components";
-
-fonts.add({
-  Inter: ["100", "200", "300", "400", "500", "600", "700", "800"],
-});
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -18,8 +14,12 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  buttom: {
-   cursor: pointer;
-   font-size: 1rem;
- };
+  /* Ajustes para tornar os botões mais responsivos */
+  button {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
+  }
+
+  /* Adicione mais estilos globais conforme necessário */
 `;

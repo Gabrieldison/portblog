@@ -15,14 +15,14 @@ export const NavLinkStyled = styled(NavLink)`
   font-weight: 700;
   text-decoration: none;
   color: ${(props) => props.theme["links"]};
-  transition: color 0.3s ease; /* Transição suave de cor */
+  transition: color 0.3s ease;
 
   &:hover {
     color: ${(props) => props.theme["title"]};
   }
 
   &.active {
-    color: ${(props) => props.theme["title"]}; /* Cor para o link ativo */
+    color: ${(props) => props.theme["title"]};
   }
 `;
 
@@ -43,11 +43,15 @@ export const LogoContainer = styled.span`
   color: ${(props) => props.theme["links"]};
 
   svg {
-    transition: color 0.3s ease; /* Transição suave */
+    transition: color 0.3s ease;
 
     &:hover {
       color: ${(props) => props.theme["title"]};
     }
+  }
+
+  @media only screen and (max-width: 450px) {
+    display: none;
   }
 `;
 
@@ -63,16 +67,15 @@ export const MapContainer = styled.div`
   gap: 15px;
 
   ${NavLinkStyled} {
-    /* Aplica estilos ao NavLinkStyled dentro do MapContainer */
     color: ${(props) => props.theme["links"]};
-    transition: color 0.3s ease; /* Transição suave de cor */
+    transition: color 0.3s ease;
 
     &:hover {
       color: ${(props) => props.theme["title"]};
     }
 
     &.active {
-      color: ${(props) => props.theme["title"]}; /* Cor para o link ativo */
+      color: ${(props) => props.theme["title"]};
     }
   }
 `;
@@ -89,7 +92,7 @@ export const ButtonToggleTheme = styled.button`
   svg {
     color: ${(props) => props.theme["text"]};
     color: ${(props) => props.theme["links"]};
-    transition: color 0.3s ease; /* Transição suave */
+    transition: color 0.3s ease;
 
     &:hover {
       color: ${(props) => props.theme["title"]};
@@ -106,7 +109,7 @@ export const ContactsLinkContainer = styled.div`
   a {
     height: 17px;
     color: ${(props) => props.theme["links"]};
-    transition: color 0.3s ease; /* Transição suave */
+    transition: color 0.3s ease;
 
     &:hover {
       color: ${(props) => props.theme["title"]};
@@ -120,9 +123,8 @@ export const Rotate180 = styled.div<{ isRotated: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease-in-out; /* Transição suave */
+  transition: transform 0.3s ease-in-out;
 
-  /* Aplicação da animação */
   animation: ${(props) => (props.isRotated ? rotateAnimation : "none")};
   transform: ${(props) =>
     props.isRotated ? "rotate(360deg)" : "rotate(130deg)"};
