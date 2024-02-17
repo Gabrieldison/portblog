@@ -37,7 +37,7 @@ export const NavContainer = styled.nav`
     margin-bottom: 0px;
   }
 
-  @media only screen and (max-width: 470px) {
+  @media only screen and (max-width: 471px) {
     display: flex;
     flex-direction: column;
     align-items: baseline;

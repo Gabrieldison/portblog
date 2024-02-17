@@ -37,12 +37,7 @@ export const HeaderContainer = styled.header`
   margin-bottom: 20px;
   border-bottom: 2px solid ${(props) => props.theme["divider"]};
 
-  @media only screen and (max-width: 470px) {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 471px) {
     width: 100%;
     justify-content: center;
     margin-bottom: 20px;
@@ -61,7 +56,7 @@ export const LogoContainer = styled.span`
     }
   }
 
-  @media only screen and (max-width: 725px) {
+  @media only screen and (max-width: 726px) {
     display: none;
   }
 `;
@@ -127,7 +122,7 @@ export const ContactsLinkContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 471px) {
     display: none;
   }
 `;
