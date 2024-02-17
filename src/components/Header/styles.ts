@@ -24,6 +24,11 @@ export const HeaderContainer = styled.header`
 export const LogoContainer = styled.span`
   cursor: pointer;
   color: ${(props) => props.theme["links"]};
+  transition: transform 0.3s ease-in-out; /* Transição suave */
+
+  &:hover {
+    color: ${(props) => props.theme["title"]};
+  }
 `;
 
 export const NavigationContainer = styled.div`
@@ -43,6 +48,10 @@ export const MapContainer = styled.div`
     text-decoration: none;
     transition: color 0.3s ease; /* Transição suave de cor */
     color: ${(props) => props.theme["links"]};
+
+    &:hover {
+      color: ${(props) => props.theme["title"]};
+    }
   }
 `;
 
@@ -57,8 +66,12 @@ export const ButtonToggleTheme = styled.button`
 
   svg {
     color: ${(props) => props.theme["text"]};
-    transition: transform 0.3s ease-in-out; /* Transição suave */
     color: ${(props) => props.theme["links"]};
+    transition: transform 0.3s ease-in-out; /* Transição suave */
+
+    &:hover {
+      color: ${(props) => props.theme["title"]};
+    }
   }
 `;
 
@@ -67,10 +80,15 @@ export const ContactsLinkContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 15px;
+  transition: transform 0.3s ease-in-out; /* Transição suave */
 
   a {
     height: 17px;
     color: ${(props) => props.theme["links"]};
+
+    &:hover {
+      color: ${(props) => props.theme["title"]};
+    }
   }
 `;
 
