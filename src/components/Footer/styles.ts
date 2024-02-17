@@ -36,6 +36,15 @@ export const NavContainer = styled.nav`
     font-weight: 500;
     margin-bottom: 0px;
   }
+
+  @media only screen and (max-width: 470px) {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
 `;
 
 export const ContactLink = styled.a`

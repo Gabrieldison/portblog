@@ -36,6 +36,15 @@ export const HeaderContainer = styled.header`
   margin: auto;
   margin-bottom: 20px;
   border-bottom: 2px solid ${(props) => props.theme["divider"]};
+
+  @media only screen and (max-width: 470px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 375px) {
+    justify-content: center;
+  }
 `;
 
 export const LogoContainer = styled.span`
@@ -50,7 +59,7 @@ export const LogoContainer = styled.span`
     }
   }
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 725px) {
     display: none;
   }
 `;
@@ -114,6 +123,10 @@ export const ContactsLinkContainer = styled.div`
     &:hover {
       color: ${(props) => props.theme["title"]};
     }
+  }
+
+  @media only screen and (max-width: 375px) {
+    display: none;
   }
 `;
 
