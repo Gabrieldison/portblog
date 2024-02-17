@@ -52,15 +52,18 @@ export const ContactLink = styled.a`
 
     p {
       border-bottom: 1px solid ${(props) => props.theme["divider"]};
-      transition: color 0.3s ease; /* Transição suave de cor */
+      transition: border-bottom 0.3s ease; /* Transição suave de cor */
     }
   }
 
   &:hover {
     div {
       color: ${(props) => props.theme["title"]};
+      transition: color 0.3s ease; /* Transição suave de cor */
+
       p {
         color: ${(props) => props.theme["title"]};
+        border-bottom: 1px solid ${(props) => props.theme["title"]};
       }
     }
   }
