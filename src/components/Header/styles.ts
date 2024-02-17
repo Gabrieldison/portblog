@@ -43,7 +43,9 @@ export const HeaderContainer = styled.header`
   }
 
   @media only screen and (max-width: 375px) {
+    width: 100%;
     justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 
