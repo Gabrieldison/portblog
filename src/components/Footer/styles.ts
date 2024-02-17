@@ -41,12 +41,27 @@ export const NavContainer = styled.nav`
 export const ContactLink = styled.a`
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-right: 20px;
   text-decoration: none;
   color: ${(props) => props.theme["links"]};
 
-  p {
-    border-bottom: 1px solid ${(props) => props.theme["divider"]};
+  div {
+    gap: 10px;
+    display: flex;
+    transition: color 0.3s ease; /* Transição suave de cor */
+
+    p {
+      border-bottom: 1px solid ${(props) => props.theme["divider"]};
+      transition: color 0.3s ease; /* Transição suave de cor */
+    }
+  }
+
+  &:hover {
+    div {
+      color: ${(props) => props.theme["title"]};
+      p {
+        color: ${(props) => props.theme["title"]};
+      }
+    }
   }
 `;

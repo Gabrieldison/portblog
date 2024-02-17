@@ -23,23 +23,31 @@ const Footer = () => {
             href="https://www.linkedin.com/in/gabriel-dison/"
             target="_blank"
           >
-            <AiFillLinkedin size={20} />
-            <p>LinkedIn</p>
+            <div>
+              <AiFillLinkedin size={20} />
+              <p>LinkedIn</p>
+            </div>
           </ContactLink>
           <ContactLink href="https://wa.me/5584981549159" target="_blank">
-            <AiOutlineWhatsApp size={20} />
-            <p>WhatsApp</p>
+            <div>
+              <AiOutlineWhatsApp size={20} />
+              <p>WhatsApp</p>
+            </div>
           </ContactLink>
           <ContactLink
             href="mailto:gabriel.disonreis@gmail.com"
             target="_blank"
           >
-            <MdEmail size={20} />
-            <p>Email</p>
+            <div>
+              <MdEmail size={20} />
+              <p>Email</p>
+            </div>
           </ContactLink>
           <ContactLink href="https://github.com/Gabrieldison" target="_blank">
-            <AiFillGithub size={20} />
-            <p> GitHub </p>
+            <div>
+              <AiFillGithub size={20} />
+              <p> GitHub </p>
+            </div>
           </ContactLink>
         </NavContainer>
       </ContentFooter>
