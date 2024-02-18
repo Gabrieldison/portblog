@@ -3,10 +3,10 @@ import styled, { keyframes } from "styled-components";
 
 const rotateAnimation = keyframes`
   from {
-    transform: rotate(130deg);
+    transform: rotate(360deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(500deg);
   }
 `;
 
@@ -159,5 +159,5 @@ export const Rotate180 = styled.div<{ isRotated: boolean }>`
 
   animation: ${(props) => (props.isRotated ? rotateAnimation : "none")};
   transform: ${(props) =>
-    props.isRotated ? "rotate(360deg)" : "rotate(130deg)"};
+    props.isRotated ? "rotate(500deg)" : "rotate(360deg)"};
 `;

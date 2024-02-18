@@ -20,7 +20,7 @@ export const useDarkMode = () => {
 const DarkModeProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
