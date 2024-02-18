@@ -44,15 +44,17 @@ export default function Header() {
           <NavLinkStyled to="/blog">BLOG</NavLinkStyled>
         </MapContainer>
 
-        <Divider>|</Divider>
+        <div className="toggle-theme">
+          <Divider>|</Divider>
 
-        <ButtonToggleTheme onClick={handleToggleDarkMode}>
-          <Rotate180 isRotated={isRotated}>
-            {darkMode ? <RxMoon size={20} /> : <IoSunnyOutline size={20} />}
-          </Rotate180>
-        </ButtonToggleTheme>
+          <ButtonToggleTheme onClick={handleToggleDarkMode}>
+            <Rotate180 isRotated={isRotated}>
+              {darkMode ? <RxMoon size={20} /> : <IoSunnyOutline size={20} />}
+            </Rotate180>
+          </ButtonToggleTheme>
 
-        <Divider>|</Divider>
+          <Divider>|</Divider>
+        </div>
 
         <ContactsLinkContainer>
           <a href="https://www.linkedin.com/in/gabriel-dison/">

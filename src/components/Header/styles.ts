@@ -37,9 +37,19 @@ export const HeaderContainer = styled.header`
   margin-bottom: 20px;
   border-bottom: 2px solid ${(props) => props.theme["divider"]};
 
-  @media only screen and (max-width: 471px) {
+  @media only screen and (max-width: 1121px) {
     width: 100%;
+  }
+
+  @media only screen and (max-width: 520px) {
     justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 471px) {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
     margin-bottom: 20px;
   }
 `;
@@ -56,7 +66,7 @@ export const LogoContainer = styled.span`
     }
   }
 
-  @media only screen and (max-width: 726px) {
+  @media only screen and (max-width: 520px) {
     display: none;
   }
 `;
@@ -66,6 +76,18 @@ export const NavigationContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
+
+  .toggle-theme {
+    display: flex;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 471px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 export const MapContainer = styled.div`

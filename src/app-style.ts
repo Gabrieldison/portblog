@@ -5,11 +5,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   margin-left: 2rem;
   margin-right: 2rem;
-
-  /* @media only screen and (max-width: 768px) {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  } */
 `;
 
 export const MainContainer = styled.main`
