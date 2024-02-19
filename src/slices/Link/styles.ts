@@ -4,6 +4,7 @@ export const Container = styled.div`
   margin-bottom: 16px;
 
   a {
+    font-size: 1rem;
     text-decoration: none;
     border-bottom: 1px solid ${(props) => props.theme["divider"]};
     color: ${(props) => props.theme["links"]};
