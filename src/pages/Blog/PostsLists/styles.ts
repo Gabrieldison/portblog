@@ -14,6 +14,10 @@ export const PostSection = styled.section`
     padding-bottom: 10px;
   }
 
+  span {
+    font-size: 0.8rem;
+  }
+
   &:hover {
     background: ${(props) => props.theme["background-hover"]};
   }
