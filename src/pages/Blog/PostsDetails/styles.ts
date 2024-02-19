@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div``;
 
 export const Title = styled.h1`
+  font-size: 2rem;
   margin-bottom: 20px;
   color: ${(props) => props.theme["title"]};
 `;

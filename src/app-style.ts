@@ -1,5 +1,3 @@
-// styles.js (ou o nome do seu arquivo de estilos)
-
 import styled from "styled-components";
 
 export const Wrapper = styled.div`

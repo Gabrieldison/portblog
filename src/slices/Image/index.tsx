@@ -1,14 +1,13 @@
 import { PrismicImage } from "@prismicio/react";
+import { Container } from "./styles";
 
 export default function Image({ slice }: any) {
   return (
-    <div>
+    <Container>
       <PrismicImage
         field={slice.primary?.image}
-        height={300}
-        width={500}
         style={{ marginBottom: "25px" }}
       />
-    </div>
+    </Container>
   );
 }

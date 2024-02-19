@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+
+    @media only screen and (max-width: 720px) {
+    font-size: 87.5%;
+  }
   }
 
   body {

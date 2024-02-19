@@ -113,10 +113,6 @@ export const MapContainer = styled.div`
     &.active {
       color: ${(props) => props.theme["title"]};
     }
-
-    @media only screen and (max-width: 521px) {
-      font-size: 14px;
-    }
   }
 `;
 
