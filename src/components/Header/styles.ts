@@ -3,10 +3,10 @@ import styled, { keyframes } from "styled-components";
 
 const rotateAnimation = keyframes`
   from {
-    transform: rotate(360deg);
+    transform: rotate(125deg);
   }
   to {
-    transform: rotate(500deg);
+    transform: rotate(360deg);
   }
 `;
 
@@ -66,8 +66,16 @@ export const LogoContainer = styled.span`
     }
   }
 
-  @media only screen and (max-width: 520px) {
-    display: none;
+  @media only screen and (max-width: 521px) {
+    svg {
+      transition: color 0.3s ease;
+      height: 35px;
+      width: 35px;
+
+      &:hover {
+        color: ${(props) => props.theme["title"]};
+      }
+    }
   }
 `;
 
@@ -82,10 +90,10 @@ export const NavigationContainer = styled.div`
     align-items: center;
   }
 
-  @media only screen and (max-width: 471px) {
+  @media only screen and (max-width: 521px) {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
   }
 `;
@@ -104,6 +112,10 @@ export const MapContainer = styled.div`
 
     &.active {
       color: ${(props) => props.theme["title"]};
+    }
+
+    @media only screen and (max-width: 521px) {
+      font-size: 14px;
     }
   }
 `;
@@ -144,7 +156,7 @@ export const ContactsLinkContainer = styled.div`
     }
   }
 
-  @media only screen and (max-width: 471px) {
+  @media only screen and (max-width: 521px) {
     display: none;
   }
 `;
@@ -159,5 +171,5 @@ export const Rotate180 = styled.div<{ isRotated: boolean }>`
 
   animation: ${(props) => (props.isRotated ? rotateAnimation : "none")};
   transform: ${(props) =>
-    props.isRotated ? "rotate(500deg)" : "rotate(360deg)"};
+    props.isRotated ? "rotate(125deg)" : "rotate(360deg)"};
 `;
