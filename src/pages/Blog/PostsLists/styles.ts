@@ -10,12 +10,12 @@ export const PostSection = styled.section`
   transition: background 0.3s ease; /* Transição suave de cor */
 
   h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding-bottom: 10px;
   }
 
   span {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   &:hover {
