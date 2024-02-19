@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface DarkModeContextType {
   darkMode: boolean;
@@ -20,7 +20,14 @@ export const useDarkMode = () => {
 const DarkModeProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  // Obtém o estado inicial do tema do localStorage
+  const storedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState<boolean>(storedDarkMode);
+
+  // Atualiza o localStorage sempre que o tema muda
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode.toString());
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);

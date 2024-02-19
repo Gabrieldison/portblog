@@ -4,10 +4,10 @@ import {
   AiFillLinkedin,
   AiOutlineWhatsApp,
 } from "react-icons/ai";
+import { BsMoonStars } from "react-icons/bs";
 import { GiMountedKnight } from "react-icons/gi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import { RxMoon } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../../context/DarkModeContext";
 import {
@@ -49,7 +49,11 @@ export default function Header() {
 
           <ButtonToggleTheme onClick={handleToggleDarkMode}>
             <Rotate180 isRotated={isRotated}>
-              {darkMode ? <RxMoon size={20} /> : <IoSunnyOutline size={20} />}
+              {darkMode ? (
+                <BsMoonStars size={20} />
+              ) : (
+                <IoSunnyOutline size={20} />
+              )}
             </Rotate180>
           </ButtonToggleTheme>
 
