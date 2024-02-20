@@ -7,3 +7,10 @@ export const Container = styled.main`
     color: ${({ theme }) => theme.text};
   }
 `;
+
+export const WarningContainer = styled.h1`
+  display: flex;
+  justify-content: center;
+  color: ${(props) => props.theme["text"]};
+  font-size: 1.5rem;
+`;
