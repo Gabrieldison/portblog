@@ -1,22 +1,23 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import ProjectsList from "./ProjectsList";
-import { Container, WarningContainer } from "./styles";
+import { Container, LoadingIndicator, WarningContainer } from "./styles";
 
 export default function Projects() {
-  const [documents] = useAllPrismicDocumentsByType("projects");
-  // const [documents, isLoading] = useAllPrismicDocumentsByType("projects");
-
-  // if (isLoading) {
-  //   return (
-  //     <WarningContainer>Em construção! Novidades em breve.</WarningContainer>
-  //   );
-  // }
+  const [documents, isLoading] = useAllPrismicDocumentsByType("projects");
 
   if (!documents || documents.length === 0) {
     return (
       <WarningContainer>
         Nenhum projeto encontrado. Volte em breve para novidades!
       </WarningContainer>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <Container>
+        <LoadingIndicator />
+      </Container>
     );
   }
 

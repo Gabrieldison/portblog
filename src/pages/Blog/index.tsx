@@ -1,22 +1,25 @@
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
 import PostsList from "./PostsLists";
-import { Container, WarningContainer } from "./styles";
+import { Container, LoadingIndicator, WarningContainer } from "./styles";
 
 export default function Blog() {
-  const [documents] = useAllPrismicDocumentsByType("posts");
-  // const [documents, isLoading] = useAllPrismicDocumentsByType("posts");
-
-  // if (isLoading) {
-  //   return (
-  //     <WarningContainer>Em construção! Novidades em breve.</WarningContainer>
-  //   );
-  // }
+  const [documents, isLoading] = useAllPrismicDocumentsByType("posts");
 
   if (!documents || documents.length === 0) {
     return (
-      <WarningContainer>
-        Nenhum post encontrado. Volte em breve para novidades!
-      </WarningContainer>
+      <Container>
+        <WarningContainer>
+          Nenhum post encontrado. Volte em breve para novidades!
+        </WarningContainer>
+      </Container>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <Container>
+        <LoadingIndicator />
+      </Container>
     );
   }
 
